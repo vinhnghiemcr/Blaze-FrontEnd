@@ -29,3 +29,21 @@ export const CheckSession = async () => {
     throw error
   }
 }
+
+export const UpdateUser = async (userId) => {
+  try {
+    const res = await Client.put(`/user/${userId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const DeleteUser = async (userId) => {
+  try {
+    const res = await Client.delete(`/user/${userId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
