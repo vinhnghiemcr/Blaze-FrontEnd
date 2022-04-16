@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
-import { Route, Routes } from 'react-router'
-import Nav from './components/Nav'
+import { Route, Routes } from 'react-router-dom'
+import { connect } from 'react-redux'
+// import Nav from './components/Nav'
+import Home from './pages/HomePage'
+// import Register from '/pages/Register'
+// import SignIn from './pages/SignUpPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
 import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
@@ -10,13 +14,12 @@ const mapStateToProps = ({ userState }) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-      setUser: (user) => dispatch(SetUser(user)),
-      toggleAuthenticated: (value) => dispatch(ToggleAuthenticated(value))
+    setUser: (user) => dispatch(SetUser(user)),
+    toggleAuthenticated: (value) => dispatch(ToggleAuthenticated(value))
   }
 }
 
 const App = (props) => {
-  
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
     props.setUser(null)
@@ -33,23 +36,34 @@ const App = (props) => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      checkToken()      
+      checkToken()
     }
   }, [])
 
   return (
     <div className="App">
-      <Nav
+      {/* <Nav
         authenticated={authenticated}
         user={user}
         handleLogOut={handleLogOut}
-      />
+      /> */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/feed" element={<Feed user={user} authenticated={authenticated} />} />
+          {/* <Route
+            path="/signin"
+            element={
+              <SignIn
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
+          /> */}
+          {/* <Route path="/register" element={<Register />} />
+          <Route
+            path="/feed"
+            element={<Feed user={user} authenticated={authenticated} />}
+          /> */}
         </Routes>
       </main>
     </div>
