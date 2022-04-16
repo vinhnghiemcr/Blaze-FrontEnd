@@ -1,13 +1,16 @@
 import { createStore, combineReducers } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import UserReducer from './reducers/UserReducer'
-// import ProductReducer from './reducers/ProductReducer'
+import StateReducer from './reducers/StateReducer'
+
 
 const store = createStore(
   combineReducers({
     userState: UserReducer,
-    // productState: ProductReducer
+    locationState: StateReducer
   }),
-  composeWithDevTools(applyMidleware(thuk))
+  composeWithDevTools(applyMidleware(thunk))
 )
 
 export default store
