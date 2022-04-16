@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { connect } from 'react-redux'
-// import Nav from './components/Nav'
+import Nav from './components/Nav'
 import Home from './pages/HomePage'
 // import Register from '/pages/Register'
 // import SignIn from './pages/SignUpPage'
@@ -42,11 +42,7 @@ const App = (props) => {
 
   return (
     <div className="App">
-      {/* <Nav
-        authenticated={authenticated}
-        user={user}
-        handleLogOut={handleLogOut}
-      /> */}
+      <Nav handleLogOut={handleLogOut} />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
