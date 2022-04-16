@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const GetAllTrailAndPost = async (trailId) => {
+export const GetTrailAndPosts = async (trailId) => {
   try {
     const res = await Client.get(`/trail/${trailId}`)
     return res.data
@@ -9,9 +9,12 @@ export const GetAllTrailAndPost = async (trailId) => {
   }
 }
 
-export const CreateTrail = async (stateId, userId) => {
+export const CreateTrail = async (stateId, userId, formValue) => {
   try {
-    const res = await Client.post(`/trail/user/${userId}/state/${stateId}`)
+    const res = await Client.post(
+      `/trail/user/${userId}/state/${stateId}`,
+      formValue
+    )
     return res.data
   } catch (error) {
     throw error
