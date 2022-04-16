@@ -3,7 +3,14 @@ const types = require('../types')
 const iState = {
   user: null,
   authenticated: false,
-  loginFormValues: { email: '', password: '' }
+  loginFormValues: { email: '', password: '' },
+  signupFormValues: {
+    name: '',
+    trailName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
 }
 
 const UserReducer = (state = iState, action) => {
@@ -17,6 +24,8 @@ const UserReducer = (state = iState, action) => {
         ...state,
         loginFormValues: { ...state.loginFormValues, ...action.payload }
       }
+    case types.UPDATE_SIGNUP_FORM_VALUES:
+      return {...state, signupFormValues: {...state.signupFormValues, ...action.payload}}
     default:
       return { ...state }
   }
