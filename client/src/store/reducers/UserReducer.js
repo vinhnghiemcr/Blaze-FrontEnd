@@ -1,16 +1,20 @@
-const { SET_USER, TOGGLE_AUTHENTICATED } = require('../types')
+const types = require('../types')
 
 const iState = {
   user: null,
-  authenticated: false
+  authenticated: false,
+  loginFormValues: { email: '', password: '' },
+
 }
 
 const UserReducer = (state = iState, action) => {
   switch (action.type) {
-    case SET_USER:
+    case types.SET_USER:
       return { ...state, user: action.payload }
-    case TOGGLE_AUTHENTICATED:
+    case types.TOGGLE_AUTHENTICATED:
       return { ...state, authenticated: action.payload }
+    case types.UPDATE_LOGIN_FORM_VALUES:
+      return { ...state, loginFormValues: {...loginFormValues, ...action.payload}}
     default:
       return { ...state }
   }
