@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Nav from './components/Nav'
 import Home from './pages/HomePage'
 // import Register from '/pages/Register'
-// import SignIn from './pages/SignUpPage'
+import Login from './pages/LoginPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
 import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
@@ -46,15 +46,7 @@ const App = (props) => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route
-            path="/signin"
-            element={
-              <SignIn
-                setUser={setUser}
-                toggleAuthenticated={toggleAuthenticated}
-              />
-            }
-          /> */}
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/register" element={<Register />} />
           <Route
             path="/feed"

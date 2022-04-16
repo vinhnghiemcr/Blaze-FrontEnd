@@ -3,8 +3,7 @@ const types = require('../types')
 const iState = {
   user: null,
   authenticated: false,
-  loginFormValues: { email: '', password: '' },
-
+  loginFormValues: { email: '', password: '' }
 }
 
 const UserReducer = (state = iState, action) => {
@@ -14,7 +13,10 @@ const UserReducer = (state = iState, action) => {
     case types.TOGGLE_AUTHENTICATED:
       return { ...state, authenticated: action.payload }
     case types.UPDATE_LOGIN_FORM_VALUES:
-      return { ...state, loginFormValues: {...loginFormValues, ...action.payload}}
+      return {
+        ...state,
+        loginFormValues: { ...state.loginFormValues, ...action.payload }
+      }
     default:
       return { ...state }
   }

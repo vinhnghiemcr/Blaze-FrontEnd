@@ -7,7 +7,7 @@ const mapStateToProps = ({ userState }) => {
 
 const Nav = (props) => {
   let authenticatedOptions
-  if(props.user) {
+  if(props.userState.user) {
     authenticatedOptions = (
       <nav>
         <h2>Welcome!</h2>
@@ -22,7 +22,7 @@ const Nav = (props) => {
   const publicOptions = (
     <nav>
       <Link to='/register'>Register</Link>
-      <Link to='/login'>Login</Link>
+      <Link to="/login">Login</Link>
     </nav>
   )
 
