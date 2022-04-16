@@ -12,4 +12,8 @@ export const ToggleAuthenticated = (value) => ({
     payload: value
 })
 
-
+// Update the login form values
+export const UpdateLoginFormValues = (data) => ({
+    type: types.UPDATE_LOGIN_FORM_VALUES,
+    payload: data
+})
