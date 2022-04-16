@@ -1,29 +1,32 @@
 import { connect } from 'react-redux'
 import { LoadStates } from '../store/actions/StateActions'
 import { useEffect } from 'react'
+import State from '../components/State'
 
 
 
 const mapStateToProps = ({ locationState }) => {
-    return { postState }
+    return { locationState }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPosts: () => dispatch(LoadStates())
+        fetchLocations: () => dispatch(LoadStates())
     }
 }
 
 const HomePage = (props) => { 
     
     useEffect(() => {
-        props.fetchPosts()
+        props.fetchLocations()
     }, [])
     
     
     return (
         <div className='home'>
-            
+            {props.locationState.states.map((state) =>
+                <State state={state} />
+            )}
         </div>
     )
 }
