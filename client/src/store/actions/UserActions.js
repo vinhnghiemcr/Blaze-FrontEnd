@@ -17,3 +17,9 @@ export const UpdateLoginFormValues = (data) => ({
     type: types.UPDATE_LOGIN_FORM_VALUES,
     payload: data
 })
+
+// Update the sign up form values
+export const UpdateSignUpFormValues = (data) => ({
+    type: types.UPDATE_SIGNUP_FORM_VALUES,
+    payload: data
+})

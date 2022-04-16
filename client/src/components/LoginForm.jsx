@@ -7,11 +7,11 @@ const mapStateToProps = ({ userState }) => {
     return { userState }
   }
   
-  const mapDispatchToProps = (dispatch) => {
-    return {
-        updateFormValues: (data) => dispatch(UpdateLoginFormValues(data))
-    }
+const mapDispatchToProps = (dispatch) => {
+  return {
+      updateFormValues: (data) => dispatch(UpdateLoginFormValues(data))
   }
+}
 
 const LoginForm = (props) => {
 
