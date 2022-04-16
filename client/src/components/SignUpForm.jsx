@@ -37,7 +37,7 @@ const SignUpForm = (props) => {
                     <label htmlFor="name">Trail Name</label>
                     <input
                     onChange={handleChange}
-                    name="name"
+                    name="trailName"
                     type="text"
                     placeholder="Monky King"
                     value={props.userState.signupFormValues.trailName}
