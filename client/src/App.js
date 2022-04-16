@@ -1,30 +1,39 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import Nav from './components/Nav'
 import './styles/App.css'
-import { CheckSession } from './services/Auth'
+import { CheckSession } from './services/User'
+import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
 
-const App = () => {
-  const [authenticated, toggleAuthenticated] = useState(false)
-  const [user, setUser] = useState(null)
+const mapStateToProps = ({ userState }) => {
+  return { userState }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+      setUser: (user) => dispatch(SetUser(user)),
+      toggleAuthenticated: (value) => dispatch(ToggleAuthenticated(value))
+  }
+}
 
+const App = (props) => {
+  
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
-    setUser(null)
-    toggleAuthenticated(false)
+    props.setUser(null)
+    props.toggleAuthenticated(false)
     localStorage.clear()
   }
 
   const checkToken = async () => {
     const user = await CheckSession()
-    setUser(user)
-    toggleAuthenticated(true)
+    props.setUser(user)
+    props.toggleAuthenticated(true)
   }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      checkToken()
+      checkToken()      
     }
   }, [])
 
@@ -47,4 +56,4 @@ const App = () => {
   )
 }
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)
