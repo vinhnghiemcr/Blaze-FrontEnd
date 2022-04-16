@@ -21,7 +21,7 @@ const Nav = (props) => {
 
   const publicOptions = (
     <nav>
-      <Link to='/register'>Register</Link>
+      <Link to='/signup'>Register</Link>
       <Link to="/login">Login</Link>
     </nav>
   )
