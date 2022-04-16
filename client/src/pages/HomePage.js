@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { LoadStates } from '../store/actions/StateActions'
 import { useEffect } from 'react'
-import Post from '../components/Post'
 
 
 
@@ -24,9 +23,7 @@ const HomePage = (props) => {
     
     return (
         <div className='home'>
-            {props.postState.posts.map((post) => (
-                <Post key={post._id} post={post} />
-            ))}
+            
         </div>
     )
 }
