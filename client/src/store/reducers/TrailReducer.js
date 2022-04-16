@@ -1,13 +1,13 @@
-const { GET_POSTS } = require('../types')
+const { GET_TRAILS } = require('../types')
 
 const iState = {
-  postss: []
+  trails: []
 }
 
 const TrailReducer = (state = iState, action) => {
   switch (action.type) {
-    case GET_POSTS:
-      return { ...state, posts: [...action.payload] }
+    case GET_TRAILS:
+      return { ...state, trails: [...action.payload] }
     default:
       return { ...state }
   }
