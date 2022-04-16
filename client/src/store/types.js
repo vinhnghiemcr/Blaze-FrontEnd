@@ -8,9 +8,9 @@ export const UPDATE_SIGNUP_FORM_VALUES = 'UPDATE_SIGNUP_FORM_VALUES'
 export const GET_STATES = 'GET_STATES'
 
 //Trail
-export const GET_TRAILS = 'GET_TRAILS'
-export const NEW_TRAIL = 'NEW_TRAIL'
+export const GET_TRAIL = 'GET_TRAIL'
+export const POST_TRAIL = 'NEW_TRAIL'
 export const REMOVE_TRAIL = 'REMOVE_TRAIL'
-
+export const UPDATE_NEW_TRAIL_FORM = 'UPDATE_NEW_TRAIL_FORM'
 //Post
 export const GET_POSTS = 'GET_POSTS'
