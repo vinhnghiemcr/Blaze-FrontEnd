@@ -26,3 +26,12 @@ export const UpdateTrailById = async (trailId, userId) => {
     throw error
   }
 }
+
+export const DeleteTrailById = async (trailId, userId) => {
+  try {
+    const res = await Client.delete(`/trail/${trailId}/user/${userId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
