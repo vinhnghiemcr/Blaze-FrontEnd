@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { LoadStates } from '../store/actions/StateActions'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import State from '../components/State'
 
 const mapStateToProps = ({ locationState }) => {
@@ -22,7 +23,9 @@ const HomePage = (props) => {
   return (
     <div className="home">
       {props.locationState.states.map((state) => (
-        <State key={state.id} state={state} />
+        <Link to={`state/${state.id}`}>
+          <State key={state.id} state={state} />
+        </Link>
       ))}
     </div>
   )
