@@ -13,4 +13,7 @@ export const POST_TRAIL = 'NEW_TRAIL'
 export const REMOVE_TRAIL = 'REMOVE_TRAIL'
 export const UPDATE_NEW_TRAIL_FORM = 'UPDATE_NEW_TRAIL_FORM'
 //Post
-export const GET_POSTS = 'GET_POSTS'
+export const GET_POST = 'GET_POST'
+export const POST_POST = 'POST_POST'
+export const REMOVE_POST = 'REMOVE_POST'
+export const UPDATE_POST = 'UPDATE_POST'

@@ -16,7 +16,7 @@ const iState = {
 const TrailReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_TRAIL:
-      return { ...state, trails: action.payload }
+      return { ...state, trail: action.payload }
     case POST_TRAIL:
       return { ...state, newTrail: action.payload }
     case REMOVE_TRAIL:
