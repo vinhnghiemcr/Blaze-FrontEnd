@@ -13,3 +13,26 @@ export const GetPostById = (trailId) => {
     } catch (error) {}
   }
 }
+
+//update new post
+export const UpdatePost = (data) => ({
+  type: types.UPDATE_POST,
+  payload: data
+})
+
+//create new post
+export const CreateNewPost = (userId, postId, postFormValue) => {
+  return async (dispatch) => {
+    try {
+      const post = await services.CreatePost(userId, postId, postFormValue)
+      dispatch({
+        type: types.POST_POST,
+        payload: {
+          title: '',
+          content: '',
+          img: ''
+        }
+      })
+    } catch (error) {}
+  }
+}
