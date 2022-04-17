@@ -12,7 +12,7 @@ const Nav = (props) => {
       <nav>
         <h2>Welcome!</h2>
         <Link to='/user'>Profile</Link>
-        <Link onClick={props.handleLogOut} to='/state'>
+        <Link onClick={props.handleLogOut} to='/'>
           Sign Out
         </Link>
       </nav>
