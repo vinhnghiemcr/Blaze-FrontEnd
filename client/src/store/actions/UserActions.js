@@ -1,4 +1,5 @@
 import * as types from "../types";
+import * as services from '../../services/User'
 
 // Set user
 export const SetUser = (user) => ({
@@ -23,3 +24,20 @@ export const UpdateSignUpFormValues = (data) => ({
     type: types.UPDATE_SIGNUP_FORM_VALUES,
     payload: data
 })
+
+// Get user all Posts
+export const GetUserPosts = (userId) => {
+    return async (dispatch) => {
+        try {
+            const posts = await services.GetPostofUser(userId)
+            console.log("posts: ", posts)
+            dispatch({
+                type: types.SET_USER_POSTS,
+                payload: posts
+            })
+        } catch (error) {
+            throw error
+        }
+    }
+    
+}

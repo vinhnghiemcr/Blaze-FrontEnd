@@ -10,13 +10,16 @@ const iState = {
     email: '',
     password: '',
     confirmPassword: ''
-  }
+  },
+  posts: []
 }
 
 const UserReducer = (state = iState, action) => {
   switch (action.type) {
     case types.SET_USER:
       return { ...state, user: action.payload }
+    case types.SET_USER_POSTS:
+      return {...state, posts: action.payload}
     case types.TOGGLE_AUTHENTICATED:
       return { ...state, authenticated: action.payload }
     case types.UPDATE_LOGIN_FORM_VALUES:

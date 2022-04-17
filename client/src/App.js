@@ -6,6 +6,7 @@ import Home from './pages/HomePage'
 import SignUp from './pages/SignUpPage'
 import Login from './pages/LoginPage'
 import StatePage from './pages/StatePage'
+import UserPage from './pages/UserPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
 import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
@@ -49,6 +50,7 @@ const App = (props) => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/user" element={<UserPage />} />
           <Route path="/state/:stateId" element={<StatePage />} />
           {/* <Route
             path="/feed"
