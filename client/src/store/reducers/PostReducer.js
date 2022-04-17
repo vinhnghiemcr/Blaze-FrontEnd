@@ -20,7 +20,7 @@ const PostReducer = (state = iState, action) => {
     case GET_POST:
       return { ...state, post: [...action.payload] }
     case CREATE_POST:
-      return { ...state, newPost: action.payload }
+      return { ...state, newPost: {...action.payload} }
     case REMOVE_POST:
       return { ...state }
     case UPDATE_NEW_POST_VALUE:
