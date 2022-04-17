@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
-import { UpdatePostFormValues } from '../store/actions/UserActions'
 import { CreateNewPost, UpdateNewPostValue } from '../store/actions/PostActions'
+import { useNavigate } from "react-router-dom"
 
 const mapStateToProps = ({ userState, postState }) => {
   return { userState, postState }
@@ -8,12 +8,14 @@ const mapStateToProps = ({ userState, postState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createPost: (data) => dispatch(CreateNewPost(data)),
+    createPost: (userId, data) => dispatch(CreateNewPost(userId,data)),
     updateNewPostValue: (data) => dispatch(UpdateNewPostValue(data))
   }
 }
 
 const PostForm = (props) => {
+let navigate = useNavigate()
+
   let userId = props.userState.user.id
   const handleChange = (e) => {
     props.updateNewPostValue({[e.target.name]: e.target.value})
@@ -22,6 +24,7 @@ const PostForm = (props) => {
   const handlePostSubmission = (e) => {
     e.preventDefault()
     props.createPost(userId, props.postState.newPost)
+    navigate('/user')
   }
 
   return (

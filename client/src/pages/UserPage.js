@@ -27,9 +27,9 @@ const UserPage = (props) => {
       <PostForm />
       {posts.length === 0
         ? 'Post something man'
-        : posts.map((post) => {
-            ;<Post key={post.id} {...post} />
-          })}
+        : posts.map((post) => (
+            <Post key={post.id} post={post} />
+        ))}
     </div>
   )
 }
