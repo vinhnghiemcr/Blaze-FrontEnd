@@ -18,9 +18,12 @@ export const GetPostofUser = async (userId) => {
   }
 }
 
-export const CreatePost = async (userId, trailId) => {
+export const CreatePost = async (userId, trailId, postFormValue) => {
   try {
-    const res = await Client.post(`/post/trail/${trailId}/user/${userId}`)
+    const res = await Client.post(
+      `/post/trail/${trailId}/user/${userId}`,
+      postFormValue
+    )
     return res.data
   } catch (error) {
     throw error
