@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { GetUserPosts } from '../store/actions/UserActions'
+import { GetUserPosts, ToggleCreatingPost } from '../store/actions/UserActions'
 import { useEffect } from 'react'
 import Post from '../components/Post'
 import PostForm from '../components/PostForm'
@@ -10,21 +10,26 @@ const mapStateToProps = ({ userState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: (userId) => dispatch(GetUserPosts(userId))
+    fetchPosts: (userId) => dispatch(GetUserPosts(userId)),
+    toggleCreatingPost: (value) => dispatch(ToggleCreatingPost(value))
   }
 }
 
 const UserPage = (props) => {
-  const { user, authenticated, posts } = props.userState
+  const { user, posts, creatingPost } = props.userState
   useEffect(() => {
     props.fetchPosts(props.userState.user.id)
-  }, [])
+  }, [creatingPost])
 
-  console.log('userState: ', props.userState)
+  const addPost = () => {
+    props.toggleCreatingPost(true)
+  }
+
   return (
     <div>
-      <h1>{user.trailName}</h1>
-      <PostForm />
+      { creatingPost ?
+        <PostForm /> :
+        <button onClick={addPost}>Add Post</button>}
       {posts.length === 0
         ? 'Post something man'
         : posts.map((post) => (

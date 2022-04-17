@@ -41,8 +41,9 @@ export const GetUserPosts = (userId) => {
   }
 }
 
-// Update the trail form values
-export const UpdateTrailFormValues = (data) => ({
-  type: types.UPDATE_TRAIL_FORM_VALUES,
-  payload: data
+
+// Toggle creating post
+export const ToggleCreatingPost = (value) => ({
+  type: types.TOGGLE_CREATING_POST,
+  payload: value
 })
