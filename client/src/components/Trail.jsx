@@ -1,10 +1,10 @@
-const Trail = ({trail}) => {
+const Trail = ({ name, img, description }) => {
 
   return (
       <div className="trailMap">
-          <h2>{trail.name}</h2>
-          <img className="trailImg" src={trail.img} alt={trail.name}/>
-          <h4>{trail.description}</h4>
+          <h2>{name}</h2>
+          <img className="trailImg" src={img} alt={name}/>
+          <h4>{description}</h4>
       </div>
   )
 }

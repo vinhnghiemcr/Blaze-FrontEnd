@@ -9,7 +9,7 @@ export const GetAllStates = async () => {
   }
 }
 
-export const GetAllStatesAndTrails = async (stateId) => {
+export const GetStateAndAllTrails = async (stateId) => {
   try {
     const res = await Client.get(`/state/${stateId}`)
     return res.data

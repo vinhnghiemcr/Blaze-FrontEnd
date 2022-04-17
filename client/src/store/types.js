@@ -6,6 +6,7 @@ export const UPDATE_SIGNUP_FORM_VALUES = 'UPDATE_SIGNUP_FORM_VALUES'
 
 //State
 export const GET_STATES = 'GET_STATES'
+export const GET_STATE_DETAILS = 'GET_STATE_DETAILS'
 
 //Trail
 export const GET_TRAIL = 'GET_TRAIL'
