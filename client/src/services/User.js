@@ -47,3 +47,13 @@ export const DeleteUser = async (userId) => {
     throw error
   }
 }
+
+// Get all posts belong to a user
+export const GetPostofUser = async (userId) => {
+  try {
+    const res = await Client.get(`/post/user/${userId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
