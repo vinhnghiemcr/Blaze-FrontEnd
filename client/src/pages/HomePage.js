@@ -3,6 +3,7 @@ import { LoadStates } from '../store/actions/StateActions'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import State from '../components/State'
+import '../styles/App.css'
 
 const mapStateToProps = ({ locationState }) => {
   return { locationState }

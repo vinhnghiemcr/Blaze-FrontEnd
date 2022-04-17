@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import '../styles/App.css'
 
 const mapStateToProps = ({ userState }) => {
   return { userState }
