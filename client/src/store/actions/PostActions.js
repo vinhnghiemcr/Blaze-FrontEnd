@@ -1,5 +1,5 @@
 import * as types from '../types'
-import * as types from '../../services/Post'
+import * as services from '../../services/Post'
 
 //get post by id
 export const GetPostById = (trailId) => {
@@ -15,22 +15,23 @@ export const GetPostById = (trailId) => {
 }
 
 //update new post
-export const UpdatePost = (data) => ({
-  type: types.UPDATE_POST,
+export const UpdateNewPostValue = (data) => ({
+  type: types.UPDATE_NEW_POST_VALUE,
   payload: data
 })
 
 //create new post
-export const CreateNewPost = (userId, postId, postFormValue) => {
+export const CreateNewPost = (userId, postFormValues) => {
   return async (dispatch) => {
     try {
-      const post = await services.CreatePost(userId, postId, postFormValue)
+      const post = await services.CreatePost(userId, postFormValues)
       dispatch({
-        type: types.POST_POST,
+        type: types.CREATE_POST,
         payload: {
           title: '',
           content: '',
-          img: ''
+          img: '',
+          trailName: ''
         }
       })
     } catch (error) {}
