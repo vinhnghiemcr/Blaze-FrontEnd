@@ -41,12 +41,6 @@ export const GetUserPosts = (userId) => {
   }
 }
 
-// Update the post form values
-export const UpdatePostFormValues = (data) => ({
-  type: types.UPDATE_POST_FORM_VALUES,
-  payload: data
-})
-
 // Update the trail form values
 export const UpdateTrailFormValues = (data) => ({
   type: types.UPDATE_TRAIL_FORM_VALUES,
