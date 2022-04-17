@@ -9,7 +9,7 @@ const iState = {
   }
 }
 
-const TrailReducer = (state = iState, action) => {
+const PostReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_POST:
       return { ...state, post: [...action.payload] }
@@ -24,4 +24,4 @@ const TrailReducer = (state = iState, action) => {
   }
 }
 
-export default TrailReducer
+export default PostReducer
