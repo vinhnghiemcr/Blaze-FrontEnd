@@ -11,7 +11,6 @@ const Nav = (props) => {
   if(props.userState.user) {
     authenticatedOptions = (
       <nav>
-        <h2>Welcome!</h2>
         <Link to='/timeline'>Timeline</Link>
         <Link to='/user'>Profile</Link>
         <Link onClick={props.handleLogOut} to='/'>
@@ -32,9 +31,7 @@ const Nav = (props) => {
     <header>
       <Link to='/'>
         <div>
-          <h2>
-            Home
-          </h2>
+          <img className ="navLogo" src="https://i.imgur.com/rggyD1j.png" alt="logo"/> 
         </div>
       </Link>
       {props.userState.authenticated && props.userState.user ? authenticatedOptions : publicOptions}
