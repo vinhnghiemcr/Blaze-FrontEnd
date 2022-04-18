@@ -24,3 +24,17 @@ export const UpdateNewCommentContent = (data) => ({
   type: types.UPDATE_COMMENT_CONTENT,
   payload: data
 })
+
+export const GetPostComments = (postId) => {
+  return async (dispatch) => {
+    try {
+      const comments = await services.GetPostComments(postId)
+      dispatch({
+        type: types.SET_POST_COMMENTS,
+        payload: comments
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
