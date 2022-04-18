@@ -21,12 +21,12 @@ export const UpdateTrailForm = (data) => ({
 })
 
 //Create new trail
-export const CreateNewTrail = (stateId, userId, formValue) => {
+export const CreateNewTrail = (userId, formValue) => {
   return async (dispatch) => {
     try {
-      const trail = await services.CreateTrail(stateId, userId, formValue)
+      const trail = await services.CreateTrail(userId, formValue)
       dispatch({
-        type: types.POST_TRAIL,
+        type: types.CREATE_TRAIL,
         payload: {
           name: '',
           img: '',
@@ -34,7 +34,8 @@ export const CreateNewTrail = (stateId, userId, formValue) => {
           difficulty: '',
           length: 0,
           elevationChange: 0,
-          routeType: ''
+          routeType: '',
+          stateName: ''
         }
       })
     } catch (error) {}

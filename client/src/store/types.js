@@ -12,7 +12,7 @@ export const GET_STATE_DETAILS = 'GET_STATE_DETAILS'
 
 //Trail
 export const GET_TRAIL = 'GET_TRAIL'
-export const POST_TRAIL = 'NEW_TRAIL'
+export const CREATE_TRAIL = 'CREATE_TRAIL'
 export const REMOVE_TRAIL = 'REMOVE_TRAIL'
 export const UPDATE_NEW_TRAIL_FORM = 'UPDATE_NEW_TRAIL_FORM'
 //Post

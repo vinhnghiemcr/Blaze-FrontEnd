@@ -9,12 +9,9 @@ export const GetTrailAndPosts = async (trailId) => {
   }
 }
 
-export const CreateTrail = async (stateId, userId, formValue) => {
+export const CreateTrail = async (userId, formValue) => {
   try {
-    const res = await Client.post(
-      `/trail/user/${userId}/state/${stateId}`,
-      formValue
-    )
+    const res = await Client.post(`/trail/user/${userId}`, formValue)
     return res.data
   } catch (error) {
     throw error

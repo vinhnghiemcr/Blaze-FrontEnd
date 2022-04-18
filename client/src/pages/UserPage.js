@@ -3,6 +3,7 @@ import { GetUserPosts } from '../store/actions/UserActions'
 import { useEffect } from 'react'
 import Post from '../components/Post'
 import PostForm from '../components/PostForm'
+import TrailForm from '../components/TrailForm'
 
 const mapStateToProps = ({ userState }) => {
   return { userState }
@@ -25,11 +26,10 @@ const UserPage = (props) => {
     <div>
       <h1>{user.trailName}</h1>
       <PostForm />
+      <TrailForm />
       {posts.length === 0
         ? 'Post something man'
-        : posts.map((post) => (
-            <Post key={post.id} post={post} />
-        ))}
+        : posts.map((post) => <Post key={post.id} post={post} />)}
     </div>
   )
 }
