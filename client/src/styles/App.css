@@ -19,6 +19,7 @@
 
 .postImg {
   width: 60%;
+  border-radius: 8px;
 }
 
 body {
@@ -29,10 +30,22 @@ body {
 a {
   text-decoration: none;
   color:#F2F2F2; 
+  padding: 0 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4C5939;
 }
 
 a:hover {
   color: #172601; 
+}
+
+h2 {
+  margin:0;
 }
 
 
