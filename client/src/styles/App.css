@@ -3,14 +3,21 @@
   text-align: center;
 }
 
-.home {
+.home, .timeline {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   margin: 5%;
 }
 
+
 .stateImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.postImg {
   width: 60%;
 }
 
