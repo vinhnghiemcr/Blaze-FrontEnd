@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -11,6 +12,20 @@
 
 .stateImg {
   width: 60%;
+}
+
+body {
+  background-color: #9EA68D;
+  font-family: 'Manrope', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color:#F2F2F2; 
+}
+
+a:hover {
+  color: #172601; 
 }
 
 
