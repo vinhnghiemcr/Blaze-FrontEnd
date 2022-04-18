@@ -12,6 +12,7 @@ const Nav = (props) => {
   if(props.userState.user) {
     authenticatedOptions = (
       <nav>
+        <Link to="/about">About</Link>
         <Link to='/timeline'>Timeline</Link>
         <Link to='/user'>Profile</Link>
         <Link onClick={props.handleLogOut} to='/'>
