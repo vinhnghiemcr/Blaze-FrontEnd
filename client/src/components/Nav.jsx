@@ -12,6 +12,7 @@ const Nav = (props) => {
     authenticatedOptions = (
       <nav>
         <h2>Welcome!</h2>
+        <Link to='/timeline'>Timeline</Link>
         <Link to='/user'>Profile</Link>
         <Link onClick={props.handleLogOut} to='/'>
           Sign Out

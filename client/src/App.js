@@ -10,6 +10,7 @@ import UserPage from './pages/UserPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
 import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
+import TimelinePage from './pages/TimelinePage'
 
 const mapStateToProps = ({ userState }) => {
   return { userState }
@@ -52,6 +53,7 @@ const App = (props) => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/state/:stateId" element={<StatePage />} />
+          <Route path="/timeline" element={<TimelinePage />} />
           {/* <Route
             path="/feed"
             element={<Feed user={user} authenticated={authenticated} />}
