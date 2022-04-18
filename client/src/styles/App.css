@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.home, .timeline {
+.home {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -29,8 +29,12 @@
 
 
 .postImg {
-  width: 60%;
+  width: 20%;
   border-radius: 8px;
+}
+
+.post-wrapper { 
+  color: #f2f2f2; 
 }
 
 .navLogo {
