@@ -8,6 +8,7 @@ import Login from './pages/LoginPage'
 import StatePage from './pages/StatePage'
 import TrailPage from './pages/TrailPage'
 import UserPage from './pages/UserPage'
+import AboutPage from './pages/AboutPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
 import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
@@ -60,6 +61,7 @@ const App = (props) => {
             path="/feed"
             element={<Feed user={user} authenticated={authenticated} />}
           /> */}
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
     </div>
