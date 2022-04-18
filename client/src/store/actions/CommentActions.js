@@ -38,3 +38,7 @@ export const GetPostComments = (postId) => {
     }
   }
 }
+
+export const ToggleViewComments = () => {
+  return { type: types.TOGGLE_VIEW_COMMENTS }
+}

@@ -1,14 +1,16 @@
 const {
   CLEAR_COMMENT_CONTENT,
   UPDATE_COMMENT_CONTENT,
-  SET_POST_COMMENTS
+  SET_POST_COMMENTS,
+  TOGGLE_VIEW_COMMENTS
 } = require('../types')
 
 const iState = {
   comments: [],
   newComment: {
     content: ''
-  }
+  },
+  showComments: false
 }
 
 const CommentReducer = (state = iState, action) => {
@@ -24,6 +26,11 @@ const CommentReducer = (state = iState, action) => {
       return {
         ...state,
         comments: action.payload
+      }
+    case TOGGLE_VIEW_COMMENTS:
+      return {
+        ...state,
+        showComments: !state.showComments
       }
     default:
       return { ...state }
