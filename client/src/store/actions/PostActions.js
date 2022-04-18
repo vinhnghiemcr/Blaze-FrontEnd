@@ -2,13 +2,13 @@ import * as types from '../types'
 import * as services from '../../services/Post'
 
 //get post by id
-export const GetPostById = (trailId) => {
+export const GetPostByTrailId = (trailId) => {
   return async (dispatch) => {
     try {
-      const post = await services.GetPostofTrail(trailId)
+      const posts = await services.GetPostofTrail(trailId)
       dispatch({
-        type: types.GET_POST,
-        payload: post
+        type: types.GET_POSTS,
+        payload: posts
       })
     } catch (error) {}
   }

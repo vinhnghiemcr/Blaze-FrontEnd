@@ -6,6 +6,7 @@ import Home from './pages/HomePage'
 import SignUp from './pages/SignUpPage'
 import Login from './pages/LoginPage'
 import StatePage from './pages/StatePage'
+import TrailPage from './pages/TrailPage'
 import UserPage from './pages/UserPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
@@ -53,6 +54,7 @@ const App = (props) => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/state/:stateId" element={<StatePage />} />
+          <Route path="/trail/:trailId" element={<TrailPage />} />
           <Route path="/timeline" element={<TimelinePage />} />
           {/* <Route
             path="/feed"

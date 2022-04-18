@@ -1,5 +1,5 @@
 const {
-  GET_POST,
+  GET_POSTS,
   CREATE_POST,
   REMOVE_POST,
   UPDATE_NEW_POST_VALUE,
@@ -7,7 +7,7 @@ const {
 } = require('../types')
 
 const iState = {
-  post: {},
+  posts: [],
   newPost: {
     title: '',
     content: '',
@@ -19,16 +19,16 @@ const iState = {
 
 const PostReducer = (state = iState, action) => {
   switch (action.type) {
-    case GET_POST:
-      return { ...state, post: [...action.payload] }
+    case GET_POSTS:
+      return { ...state, posts: [...action.payload] }
     case CREATE_POST:
-      return { ...state, newPost: {...action.payload} }
+      return { ...state, newPost: { ...action.payload } }
     case REMOVE_POST:
       return { ...state }
     case UPDATE_NEW_POST_VALUE:
       return { ...state, newPost: { ...state.newPost, ...action.payload } }
     case GET_POSTS_FROM_FOLLOWING_USER:
-      return {...state, followingUserPosts: action.payload}
+      return { ...state, followingUserPosts: action.payload }
     default:
       return { ...state }
   }
