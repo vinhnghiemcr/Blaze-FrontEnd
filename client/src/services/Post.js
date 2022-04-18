@@ -3,6 +3,7 @@ import Client from './api'
 export const GetPostofTrail = async (trailId) => {
   try {
     const res = await Client.get(`/trail/${trailId}`)
+    console.log('res.data:', res.data)
     return res.data
   } catch (error) {
     throw error
@@ -44,7 +45,6 @@ export const UpdatePost = async (userId, postId) => {
     throw error
   }
 }
-
 
 export const GetAllPostsFromFollowingUSers = async (userId) => {
   try {

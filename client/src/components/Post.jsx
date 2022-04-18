@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { CreateNewComment, UpdateNewCommentContent } from '../store/actions/CommentActions'
+import Comment from './Comment'
 
 const mapStateToProps = ({ commentState, userState }) => {
   return { commentState, userState }
@@ -24,25 +25,32 @@ const Post = (props) => {
     props.createNewComment(props.userState.user.id, props.post.id, props.commentState.newComment)
   }
 
-  console.log("props.commentState.newComment:", props.commentState.newComment)
-
   return (
     <div className="post-wrapper">
-      <h2>{props.post.title}</h2>
-      <img className="postImg" src={props.post.img} alt={props.post.id}/>
-      <h4>{props.post.content}</h4>
-      <textarea
-        name="content"
-        placeholder="Add a comment..."
-        value={props.commentState.newComment.content}
-        onChange={handleChange}
-      />
-      <button
-        disabled={!props.commentState.newComment.content}
-        onClick={handleSubmit}
-      >
-        Add Comment
-      </button>
+      <div>
+        <h2>{props.post.title}</h2>
+        <img className="postImg" src={props.post.img} alt={props.post.id}/>
+        <h4>{props.post.content}</h4>
+      </div>
+      <div className="comments-wrapper">
+        {props.commentState.comments.map(comment => (
+          <Comment key={comment.id} comment={comment} />
+        ))}
+      </div>
+      <div>
+        <textarea
+          name="content"
+          placeholder="Add a comment..."
+          value={props.commentState.newComment.content}
+          onChange={handleChange}
+        />
+        <button
+          disabled={!props.commentState.newComment.content}
+          onClick={handleSubmit}
+        >
+          Add Comment
+        </button>
+      </div>
     </div>
   )
 }

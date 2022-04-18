@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const GetComment = async (postId) => {
+export const GetPostComments = async (postId) => {
   try {
     const res = await Client.get(`/comment/post/${postId}`)
     return res.data

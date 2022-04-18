@@ -1,6 +1,11 @@
-const { CLEAR_COMMENT_CONTENT, UPDATE_COMMENT_CONTENT } = require('../types')
+const {
+  CLEAR_COMMENT_CONTENT,
+  UPDATE_COMMENT_CONTENT,
+  SET_POST_COMMENTS
+} = require('../types')
 
 const iState = {
+  comments: [],
   newComment: {
     content: ''
   }
@@ -14,6 +19,11 @@ const CommentReducer = (state = iState, action) => {
       return {
         ...state,
         newComment: { ...action.payload }
+      }
+    case SET_POST_COMMENTS:
+      return {
+        ...state,
+        comments: action.payload
       }
     default:
       return { ...state }

@@ -6,6 +6,7 @@ export const GetPostByTrailId = (trailId) => {
   return async (dispatch) => {
     try {
       const posts = await services.GetPostofTrail(trailId)
+      console.log('posts:', posts)
       dispatch({
         type: types.GET_POSTS,
         payload: posts
