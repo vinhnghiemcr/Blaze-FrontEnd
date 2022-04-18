@@ -22,6 +22,11 @@
   border-radius: 8px;
 }
 
+.navLogo {
+  padding: 5px; 
+  height: 40px;
+}
+
 body {
   background-color: #9EA68D;
   font-family: 'Manrope', sans-serif;
@@ -38,10 +43,12 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #4C5939;
+  padding: 0 8%;
 }
 
 a:hover {
   color: #172601; 
+  background-color: #9EA68D;
 }
 
 h2 {

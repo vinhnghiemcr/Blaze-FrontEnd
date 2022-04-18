@@ -31,9 +31,7 @@ const Nav = (props) => {
     <header>
       <Link to='/'>
         <div>
-          <h2>
-            Home
-          </h2>
+          <img className ="navLogo" src="https://i.imgur.com/rggyD1j.png" alt="logo"/> 
         </div>
       </Link>
       {props.userState.authenticated && props.userState.user ? authenticatedOptions : publicOptions}
