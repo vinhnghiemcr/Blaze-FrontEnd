@@ -10,7 +10,9 @@ export const GetPostByTrailId = (trailId) => {
         type: types.GET_POSTS,
         payload: posts
       })
-    } catch (error) {}
+    } catch (error) {
+      throw error
+    }
   }
 }
 

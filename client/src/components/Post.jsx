@@ -1,5 +1,7 @@
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
 import { connect } from "react-redux"
-import { CreateNewComment, UpdateNewCommentContent } from '../store/actions/CommentActions'
+import { CreateNewComment, UpdateNewCommentContent, GetPostComments } from '../store/actions/CommentActions'
 import Comment from './Comment'
 
 const mapStateToProps = ({ commentState, userState }) => {
@@ -8,12 +10,18 @@ const mapStateToProps = ({ commentState, userState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchComments: (postId) => dispatch(GetPostComments(postId)),
     createNewComment: (userId, postId, commentFormValues) => dispatch(CreateNewComment(userId, postId, commentFormValues)),
     updateNewCommentContent: (data) => dispatch(UpdateNewCommentContent(data)),
   }
 }
 
 const Post = (props) => {
+
+  useEffect(() => {
+    props.fetchComments(props.post.id)
+  }, [])
+
   const handleChange = (e) => {
     props.updateNewCommentContent({
       [e.target.name]: e.target.value
@@ -33,7 +41,7 @@ const Post = (props) => {
         <h4>{props.post.content}</h4>
       </div>
       <div className="comments-wrapper">
-        {props.commentState.comments.map(comment => (
+        {props.commentState.comments.map((comment) => (
           <Comment key={comment.id} comment={comment} />
         ))}
       </div>
