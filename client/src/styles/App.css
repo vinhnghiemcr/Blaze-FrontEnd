@@ -70,6 +70,24 @@ h2 {
   margin:0;
 }
 
+.about-page {
+  margin-top: 20px;
+}
+
+.about-page img.blaze-logo {
+  width: 15%;
+  height: 15%;
+  margin: 50px 0;
+}
+
+.summary-wrapper p {
+  color: #172601;
+}
+
+.contacts-wrapper {
+  margin-top: 65px;
+}
+
 
 
 
