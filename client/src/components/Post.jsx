@@ -51,20 +51,22 @@ const Post = (props) => {
       <button onClick={props.toggleViewComments}>
         {props.commentState.showComments ? 'Hide Comments' : 'View Comments'}
       </button>
-      <div>
-        <textarea
-          name="content"
-          placeholder="Add a comment..."
-          value={props.commentState.newComment.content}
-          onChange={handleChange}
-        />
-        <button
-          disabled={!props.commentState.newComment.content}
-          onClick={handleSubmit}
-        >
-          Add Comment
-        </button>
-      </div>
+      {props.userState.authenticated && 
+        <div>
+          <textarea
+            name="content"
+            placeholder="Add a comment..."
+            value={props.commentState.newComment.content}
+            onChange={handleChange}
+          />
+          <button
+            disabled={!props.commentState.newComment.content}
+            onClick={handleSubmit}
+          >
+            Add Comment
+          </button>
+        </div>
+      }
     </div>
   )
 }
