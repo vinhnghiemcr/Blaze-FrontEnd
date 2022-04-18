@@ -44,3 +44,13 @@ export const UpdatePost = async (userId, postId) => {
     throw error
   }
 }
+
+
+export const GetAllPostsFromFollowingUSers = async (userId) => {
+  try {
+    const res = await Client.get(`/post/following/${userId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

@@ -37,3 +37,18 @@ export const CreateNewPost = (userId, postFormValues) => {
     } catch (error) {}
   }
 }
+
+//Get all s from following users
+export const GetPostsFromFollowingUsers = (userId) => {
+  return async (dispatch) => {
+    try {
+      const posts = await services.GetAllPostsFromFollowingUSers(userId)
+      dispatch({
+        type: types.GET_POSTS_FROM_FOLLOWING_USER,
+        payload: posts
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
