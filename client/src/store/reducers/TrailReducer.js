@@ -1,4 +1,9 @@
-const { GET_TRAIL, POST_TRAIL, REMOVE_TRAIL } = require('../types')
+const {
+  GET_TRAIL,
+  CREATE_TRAIL,
+  REMOVE_TRAIL,
+  UPDATE_NEW_TRAIL_FORM
+} = require('../types')
 
 const iState = {
   trail: {},
@@ -9,7 +14,8 @@ const iState = {
     difficulty: '',
     length: 0,
     elevationChange: 0,
-    routeType: ''
+    routeType: '',
+    stateName: ''
   }
 }
 
@@ -17,7 +23,7 @@ const TrailReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_TRAIL:
       return { ...state, trail: action.payload }
-    case POST_TRAIL:
+    case CREATE_TRAIL:
       return { ...state, newTrail: action.payload }
     case REMOVE_TRAIL:
       return { ...state }
