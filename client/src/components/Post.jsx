@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { connect } from "react-redux"
-import { CreateNewComment, UpdateNewCommentContent, GetPostComments } from '../store/actions/CommentActions'
+import { CreateNewComment, UpdateNewCommentContent, GetPostComments, ToggleViewComments } from '../store/actions/CommentActions'
 import Comment from './Comment'
 
 const mapStateToProps = ({ commentState, userState }) => {
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchComments: (postId) => dispatch(GetPostComments(postId)),
     createNewComment: (userId, postId, commentFormValues) => dispatch(CreateNewComment(userId, postId, commentFormValues)),
     updateNewCommentContent: (data) => dispatch(UpdateNewCommentContent(data)),
+    toggleViewComments: () => dispatch(ToggleViewComments())
   }
 }
 
@@ -40,11 +41,16 @@ const Post = (props) => {
         <img className="postImg" src={props.post.img} alt={props.post.id}/>
         <h4>{props.post.content}</h4>
       </div>
-      <div className="comments-wrapper">
-        {props.commentState.comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
-      </div>
+      {props.commentState.showComments && (
+        <div className="comments-wrapper">
+          {props.commentState.comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
+        </div>
+      )}
+      <button onClick={props.toggleViewComments}>
+        {props.commentState.showComments ? 'Hide Comments' : 'View Comments'}
+      </button>
       <div>
         <textarea
           name="content"
