@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import AboutPage from '../pages/AboutPage'
 import '../styles/App.css'
 
 const mapStateToProps = ({ userState }) => {
@@ -22,6 +23,7 @@ const Nav = (props) => {
 
   const publicOptions = (
     <nav>
+      <Link to="/about">About</Link>
       <Link to='/signup'>Register</Link>
       <Link to="/login">Login</Link>
     </nav>
