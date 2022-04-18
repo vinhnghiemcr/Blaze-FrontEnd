@@ -45,6 +45,7 @@ const Post = (props) => {
           <Comment key={comment.id} comment={comment} />
         ))}
       </div>
+      {props.userState.authenticated &&
       <div>
         <textarea
           name="content"
@@ -58,7 +59,7 @@ const Post = (props) => {
         >
           Add Comment
         </button>
-      </div>
+      </div>}
     </div>
   )
 }
