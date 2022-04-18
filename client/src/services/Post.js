@@ -2,8 +2,7 @@ import Client from './api'
 
 export const GetPostofTrail = async (trailId) => {
   try {
-    const res = await Client.get(`/trail/${trailId}`)
-    console.log('res.data:', res.data)
+    const res = await Client.get(`post/trail/${trailId}`)
     return res.data
   } catch (error) {
     throw error
