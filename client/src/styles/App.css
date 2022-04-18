@@ -11,7 +11,7 @@
 }
 
 .stateMap {
-  filter: grayscale(100%);
+  filter: grayscale(60%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,6 +58,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #4C5939;
+  margin: 0; 
   padding: 0 8%;
 }
 
@@ -71,5 +72,52 @@ h2 {
 }
 
 
+.tree {
+  position: absolute;
+  bottom: 92%;
+  left: 60%;
+}
 
+.treeOne {
+  margin:0; 
+  width: 60px; 
+  position: relative;
+  animation: danceOne 5s infinite;
+}
+
+.treeTwo {
+  width: 50px; 
+  position: relative;
+  animation: danceTwo 5s infinite;
+}
+
+.treeThree {
+  width: 60px; 
+  position: relative;
+  animation: danceThree 5s infinite;
+}
+
+@keyframes danceOne {
+  0%   {transform: rotate(25deg);}
+  25%  {transform: rotate(5deg) !important;}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(-5deg) !important;}
+  100% {transform: rotate(25deg);}
+}
+
+@keyframes danceTwo {
+  0%   {transform: rotate(-25deg);}
+  25%  {transform: rotate(-5deg) !important;}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(5deg) !important;}
+  100% {transform: rotate(-25deg);}
+}
+
+@keyframes danceThree {
+  0%   {transform: rotate(-15deg);}
+  25%  {transform: rotate(-5deg) !important;}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(5deg) !important;}
+  100% {transform: rotate(-15deg);}
+}
 
