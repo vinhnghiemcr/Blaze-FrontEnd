@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { CreateNewTrail, UpdateTrailForm } from '../store/actions/TrailActions'
+import { ToggleCreatingTrail } from '../store/actions/UserActions'
 
 const mapStateToProps = ({ userState, trailState }) => {
   return { userState, trailState }
@@ -8,7 +9,8 @@ const mapStateToProps = ({ userState, trailState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createTrail: (userId, data) => dispatch(CreateNewTrail(userId,data)),
-    updateTrailForm: (data) => dispatch(UpdateTrailForm(data))
+    updateTrailForm: (data) => dispatch(UpdateTrailForm(data)),
+    toggleCreatingTrail: (value) => dispatch(ToggleCreatingTrail(value))
   }
 }
 
@@ -22,6 +24,7 @@ const TrailForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.createTrail(userId, props.trailState.newTrail)
+    props.toggleCreatingTrail(false)
   }
 
   return (
