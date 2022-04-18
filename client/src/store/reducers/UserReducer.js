@@ -12,7 +12,8 @@ const iState = {
     confirmPassword: ''
   },
   posts: [],
-  creatingPost: false
+  creatingPost: false,
+  creatingTrail: false
 }
 
 const UserReducer = (state = iState, action) => {
@@ -35,6 +36,8 @@ const UserReducer = (state = iState, action) => {
       }
       case types.TOGGLE_CREATING_POST:
         return {...state, creatingPost: action.payload}
+      case types.TOGGLE_CREATING_TRAIL:
+        return {...state, creatingTrail: action.payload}
     default:
       return { ...state }
   }

@@ -47,3 +47,9 @@ export const ToggleCreatingPost = (value) => ({
   type: types.TOGGLE_CREATING_POST,
   payload: value
 })
+
+// Toggle creating trail
+export const ToggleCreatingTrail = (value) => ({
+  type: types.TOGGLE_CREATING_TRAIL,
+  payload: value
+})
