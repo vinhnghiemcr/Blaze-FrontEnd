@@ -9,11 +9,11 @@ export const GetPostComments = async (postId) => {
   }
 }
 
-export const CreateComment = async (userId, postId, commentFormValues) => {
+export const CreateComment = async (userId, postId, commentBody) => {
   try {
     const res = await Client.post(
       `/comment/post/${postId}/user/${userId}`,
-      commentFormValues
+      commentBody
     )
     return res.data
   } catch (error) {

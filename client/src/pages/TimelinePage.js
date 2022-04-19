@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const TimelinePage = (props) => {
   useEffect(() => {
-    props.fetchPosts(props.userState.user.id)
+    props.fetchPosts(props.userState.id)
   }, [])
 
   return (
