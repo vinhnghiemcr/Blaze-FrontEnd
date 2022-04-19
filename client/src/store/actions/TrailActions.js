@@ -99,10 +99,12 @@ export const EditTrail = (trailId, userId, formValues) => {
           stateName: ''
         }
       })
+      //Update trail in TrailState
       dispatch({
         type: types.EDIT_TRAIL,
         payload: trail
       })
+      //Update trails array in StateState
       dispatch({
         type: types.UPDATE_STATE_TRAILS,
         payload: trail

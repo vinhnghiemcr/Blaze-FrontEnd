@@ -6,7 +6,7 @@ import {
   ToggleShouldUpdateTrail
 } from '../store/actions/TrailActions'
 import Post from '../components/Post'
-import MapWapper from '../components/MapWrapper'
+import MapWrapper from '../components/MapWrapper'
 import TrailForm from '../components/TrailForm'
 
 const mapStateToProps = ({ userState, trailState, postState }) => {
@@ -34,7 +34,7 @@ const TrailPage = (props) => {
      
   return (
     <div>
-      <div>
+      {/* <div>
         <h2>{props.trailState.trail.name}</h2>
         <img
           className="trailImg"
@@ -48,13 +48,13 @@ const TrailPage = (props) => {
             {props.trailState.shouldUpdateTrail ? 'Hide Form' : 'Update Trail'}
           </button>
         )}
-      </div>
+      </div> */}
       <div>
         {props.postState.posts.map((post) => (
           <Post key={post.id} post={post} />
         ))}
       </div>
-      <MapWapper trailId={trailId} />
+      <MapWrapper trailId={trailId} />
     </div>
   )
 }
