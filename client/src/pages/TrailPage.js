@@ -25,7 +25,7 @@ const TrailPage = (props) => {
 
   useEffect(() => {
     props.fetchTrail(trailId)
-  }, [props.trailState.shouldUpdateTrail])
+  }, [])
 
   const renderEditForm = () => {
     props.toggleShouldUpdateTrail()
