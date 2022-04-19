@@ -42,7 +42,7 @@ const TrailPage = (props) => {
 
   return (
     <div>
-      {/* <div>
+      <div>
         <h2>{props.trailState.trail.name}</h2>
         <img
           className="trailImg"
@@ -61,13 +61,13 @@ const TrailPage = (props) => {
             <button onClick={deleteTrail}>Delete</button>
           </div>
         )}
-      </div> */}
+      </div>
       <div>
         {props.postState.posts.map((post) => (
           <Post key={post.id} post={post} />
         ))}
       </div>
-      <MapWrapper trailId={trailId} />
+      {/* <MapWrapper trailId={trailId} /> */}
     </div>
   )
 }
