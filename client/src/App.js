@@ -11,7 +11,7 @@ import UserPage from './pages/UserPage'
 import AboutPage from './pages/AboutPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
-import { SetUser, ToggleAuthenticated } from './store/actions/UserActions'
+import { SetUser, ToggleAuthenticated, SetUserStateToDefault } from './store/actions/UserActions'
 import TimelinePage from './pages/TimelinePage'
 
 const mapStateToProps = ({ userState }) => {
@@ -20,7 +20,8 @@ const mapStateToProps = ({ userState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (user) => dispatch(SetUser(user)),
-    toggleAuthenticated: (value) => dispatch(ToggleAuthenticated(value))
+    toggleAuthenticated: (value) => dispatch(ToggleAuthenticated(value)),
+    setUserStateToDefault: () => dispatch(SetUserStateToDefault())
   }
 }
 
@@ -29,6 +30,7 @@ const App = (props) => {
     //Reset all auth related state and clear localStorage
     props.setUser(null)
     props.toggleAuthenticated(false)
+    props.setUserStateToDefault()
     localStorage.clear()
   }
 
