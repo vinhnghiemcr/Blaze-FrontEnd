@@ -11,12 +11,18 @@
 }
 
 .stateMap {
-  filter: grayscale(100%);
+  filter: grayscale(60%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  align-items: center; 
+}
+
+.stateName {
+  position: absolute;
+  background-color: #9EA68D;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .stateMap:hover {
@@ -24,7 +30,8 @@
 }
 .stateImg {
   flex-shrink: 2;
-  width: 90%;
+  border-radius: 10%;
+  width: 80%;
 }
 
 
@@ -58,20 +65,103 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #4C5939;
+  margin: 0; 
   padding: 0 8%;
 }
 
 a:hover {
   color: #172601; 
-  background-color: #9EA68D;
+}
+
+h1 {
+  color: #f2f2f2;
 }
 
 h2 {
   margin:0;
 }
 
+button {
+  background-color: #4C5939;
+  color: #f2f2f2;
+  font-family: 'Manrope', sans-serif;
+  margin: 10px;
+  border-radius: 10px;
+  border: 3px solid #4C5939; 
+}
+
+button:hover {
+  background-color: #f2f2f2;
+  color:#172601;
+}
+
+.about-page {
+  margin-top: 20px;
+}
+
+.about-page img.blaze-logo {
+  width: 15%;
+  height: 15%;
+  margin: 50px 0;
+}
+
+.summary-wrapper p {
+  color: #172601;
+}
+
+.contacts-wrapper {
+  margin-top: 65px;
+}
 
 
+.tree {
+  position: absolute;
+  bottom: 92%;
+  left: 60%;
+}
+
+.treeOne {
+  margin:0; 
+  width: 60px; 
+  position: relative;
+  animation: danceOne 5s infinite;
+}
+
+.treeTwo {
+  width: 50px; 
+  position: relative;
+  animation: danceTwo 5s infinite;
+}
+
+.treeThree {
+  width: 60px; 
+  position: relative;
+  animation: danceThree 5s infinite;
+}
+
+@keyframes danceOne {
+  0%   {transform: rotate(25deg);}
+  25%  {transform: rotate(5deg) !important;}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(-5deg) !important;}
+  100% {transform: rotate(25deg);}
+}
+
+@keyframes danceTwo {
+  0%   {transform: rotate(-25deg);}
+  25%  {transform: rotate(-5deg) !important;}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(5deg) !important;}
+  100% {transform: rotate(-25deg);}
+}
+
+@keyframes danceThree {
+  0%   {transform: rotate(-15deg);}
+  25%  {transform: rotate(-5deg) !important;}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(5deg) !important;}
+  100% {transform: rotate(-15deg);}
+}
 
 .map {
   width: 50%;
