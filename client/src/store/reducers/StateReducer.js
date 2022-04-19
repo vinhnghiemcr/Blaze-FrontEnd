@@ -1,4 +1,8 @@
-const { GET_STATES, GET_STATE_DETAILS } = require('../types')
+const {
+  GET_STATES,
+  GET_STATE_DETAILS,
+  UPDATE_STATE_TRAILS
+} = require('../types')
 
 const iState = {
   states: [],
@@ -12,6 +16,17 @@ const StateReducer = (state = iState, action) => {
       return { ...state, states: [...action.payload] }
     case GET_STATE_DETAILS:
       return { ...state, state: action.payload, trails: action.payload.trails }
+    case UPDATE_STATE_TRAILS:
+      return {
+        ...state,
+        trails: state.trails.map((trail) => {
+          if (trail.id === action.payload.id) {
+            return action.payload
+          } else {
+            return trail
+          }
+        })
+      }
     default:
       return { ...state }
   }

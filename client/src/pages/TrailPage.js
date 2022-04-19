@@ -1,16 +1,21 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { GetPostByTrailId } from '../store/actions/PostActions'
+import {
+  GetTrailById,
+  ToggleShouldUpdateTrail
+} from '../store/actions/TrailActions'
 import Post from '../components/Post'
+import TrailForm from '../components/TrailForm'
 
-const mapStateToProps = ({ postState }) => {
-  return { postState }
+const mapStateToProps = ({ userState, trailState, postState }) => {
+  return { userState, trailState, postState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: (trailId) => dispatch(GetPostByTrailId(trailId))
+    fetchTrail: (trailId) => dispatch(GetTrailById(trailId)),
+    toggleShouldUpdateTrail: () => dispatch(ToggleShouldUpdateTrail())
   }
 }
 
@@ -18,15 +23,35 @@ const TrailPage = (props) => {
   let { trailId } = useParams()
 
   useEffect(() => {
-    props.fetchPosts(trailId)
-  }, [])
+    props.fetchTrail(trailId)
+  }, [props.trailState.shouldUpdateTrail])
 
-  console.log('props.postState.posts:', props.postState.posts)
+  const renderEditForm = () => {
+    props.toggleShouldUpdateTrail()
+  }
+
   return (
     <div>
-      {props.postState.posts.map((post) => (
-        <Post key={post.id} post={post} />
-      ))}
+      <div>
+        <h2>{props.trailState.trail.name}</h2>
+        <img
+          className="trailImg"
+          src={props.trailState.trail.img}
+          alt={props.trailState.trail.name}
+        />
+        <h4>{props.trailState.trail.description}</h4>
+        {props.trailState.shouldUpdateTrail && <TrailForm />}
+        {props.trailState.trail.userId === props.userState.user.id && (
+          <button onClick={renderEditForm}>
+            {props.trailState.shouldUpdateTrail ? 'Hide Form' : 'Update Trail'}
+          </button>
+        )}
+      </div>
+      <div>
+        {props.postState.posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   )
 }

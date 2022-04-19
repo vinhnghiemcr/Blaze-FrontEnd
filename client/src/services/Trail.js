@@ -18,9 +18,9 @@ export const CreateTrail = async (userId, formValue) => {
   }
 }
 
-export const UpdateTrailById = async (trailId, userId) => {
+export const UpdateTrailById = async (trailId, userId, formValues) => {
   try {
-    const res = await Client.put(`/trail/${trailId}/user/${userId}`)
+    const res = await Client.put(`/trail/${trailId}/user/${userId}`, formValues)
     return res.data
   } catch (error) {
     throw error
