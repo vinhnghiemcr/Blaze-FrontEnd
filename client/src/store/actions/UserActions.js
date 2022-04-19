@@ -54,11 +54,35 @@ export const ToggleCreatingTrail = (value) => ({
 })
 
 export const DeleteUserById = (userId, passwordBody) => {
-  return async () => {
+  return async (dispatch) => {
     try {
       const user = await services.DeleteUser(userId, passwordBody)
+      dispatch({
+        type: types.TOGGLE_DELETE_USER_PASSWORD_INPUT
+      })
+      dispatch({
+        type: types.UPDATE_PASSWORD_BODY,
+        payload: {password: ''}
+      })
     } catch (error) {
       throw error
     }
   }
 }
+
+export const ToggleDeleteUserPasswordInput = () => {
+  return {
+    type: types.TOGGLE_DELETE_USER_PASSWORD_INPUT
+  }
+}
+
+export const HandlePasswordInputChange = (password) => {
+  return {
+    type: types.UPDATE_PASSWORD_BODY,
+    payload: password
+  }
+}
+
+export const SetUserStateToDefault = () => ({
+  type: types.SET_USER_STATE_TO_DEFAULT
+})

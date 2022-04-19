@@ -53,6 +53,24 @@ const UserReducer = (state = iState, action) => {
           ...action.payload
         }
       }
+      case types.SET_USER_STATE_TO_DEFAULT:
+        return {...state,
+          loginFormValues: { email: '', password: '' },
+          signupFormValues: {
+            name: '',
+            trailName: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+          },
+          posts: [],
+          creatingPost: false,
+          creatingTrail: false,
+          passwordBody: {
+            password: ''
+          },
+          deletingUser: false 
+        }
     default:
       return { ...state }
   }
