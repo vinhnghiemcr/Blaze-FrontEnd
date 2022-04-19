@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   GetTrailById,
-  ToggleShouldUpdateTrail
+  ToggleShouldUpdateTrail,
+  DeleteTrail
 } from '../store/actions/TrailActions'
 import Post from '../components/Post'
 import MapWapper from '../components/MapWrapper'
@@ -16,12 +17,15 @@ const mapStateToProps = ({ userState, trailState, postState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrail: (trailId) => dispatch(GetTrailById(trailId)),
-    toggleShouldUpdateTrail: () => dispatch(ToggleShouldUpdateTrail())
+    toggleShouldUpdateTrail: () => dispatch(ToggleShouldUpdateTrail()),
+    deleteTrail: (trailId, userId) => dispatch(DeleteTrail(trailId, userId))
   }
 }
 
 const TrailPage = (props) => {
   let { trailId } = useParams()
+
+  let navigate = useNavigate()
 
   useEffect(() => {
     props.fetchTrail(trailId)
@@ -31,7 +35,11 @@ const TrailPage = (props) => {
     props.toggleShouldUpdateTrail()
   }
 
-     
+  const deleteTrail = () => {
+    props.deleteTrail(trailId, props.userState.user.id)
+    navigate(-1)
+  }
+
   return (
     <div>
       <div>
@@ -44,9 +52,14 @@ const TrailPage = (props) => {
         <h4>{props.trailState.trail.description}</h4>
         {props.trailState.shouldUpdateTrail && <TrailForm />}
         {props.trailState.trail.userId === props.userState.user.id && (
-          <button onClick={renderEditForm}>
-            {props.trailState.shouldUpdateTrail ? 'Hide Form' : 'Update Trail'}
-          </button>
+          <div>
+            <button onClick={renderEditForm}>
+              {props.trailState.shouldUpdateTrail
+                ? 'Hide Form'
+                : 'Update Trail'}
+            </button>
+            <button onClick={deleteTrail}>Delete</button>
+          </div>
         )}
       </div>
       <div>
