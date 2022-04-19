@@ -6,6 +6,7 @@ import {
   ToggleShouldUpdateTrail
 } from '../store/actions/TrailActions'
 import Post from '../components/Post'
+import MapWapper from '../components/MapWrapper'
 import TrailForm from '../components/TrailForm'
 
 const mapStateToProps = ({ userState, trailState, postState }) => {
@@ -30,6 +31,7 @@ const TrailPage = (props) => {
     props.toggleShouldUpdateTrail()
   }
 
+     
   return (
     <div>
       <div>
@@ -52,6 +54,7 @@ const TrailPage = (props) => {
           <Post key={post.id} post={post} />
         ))}
       </div>
+      <MapWapper trailId={trailId} />
     </div>
   )
 }

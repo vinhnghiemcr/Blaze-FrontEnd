@@ -163,3 +163,8 @@ button:hover {
   100% {transform: rotate(-15deg);}
 }
 
+.map {
+  width: 50%;
+  height:300px;
+  margin: 20px auto;
+}

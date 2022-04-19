@@ -24,7 +24,7 @@ const HomePage = (props) => {
   return (
     <div className="home">
       {props.locationState.states.map((state) => (
-        <Link to={`state/${state.id}`}>
+        <Link key={state.id} to={`state/${state.id}`}>
           <State key={state.id} state={state} />
         </Link>
       ))}
