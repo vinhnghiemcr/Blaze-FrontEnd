@@ -41,7 +41,6 @@ export const GetUserPosts = (userId) => {
   }
 }
 
-
 // Toggle creating post
 export const ToggleCreatingPost = (value) => ({
   type: types.TOGGLE_CREATING_POST,
@@ -53,3 +52,13 @@ export const ToggleCreatingTrail = (value) => ({
   type: types.TOGGLE_CREATING_TRAIL,
   payload: value
 })
+
+export const DeleteUserById = (userId, passwordBody) => {
+  return async () => {
+    try {
+      const user = await services.DeleteUser(userId, passwordBody)
+    } catch (error) {
+      throw error
+    }
+  }
+}

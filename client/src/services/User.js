@@ -39,9 +39,9 @@ export const UpdateUser = async (userId) => {
   }
 }
 
-export const DeleteUser = async (userId) => {
+export const DeleteUser = async (userId, passwordBody) => {
   try {
-    const res = await Client.delete(`/user/${userId}`)
+    const res = await Client.delete(`/user/${userId}`, passwordBody)
     return res.data
   } catch (error) {
     throw error
