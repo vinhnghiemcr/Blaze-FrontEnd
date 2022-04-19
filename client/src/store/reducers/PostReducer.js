@@ -1,5 +1,5 @@
 const {
-  GET_POSTS,
+  SET_POSTS,
   CREATE_POST,
   REMOVE_POST,
   UPDATE_NEW_POST_VALUE,
@@ -19,8 +19,8 @@ const iState = {
 
 const PostReducer = (state = iState, action) => {
   switch (action.type) {
-    case GET_POSTS:
-      return { ...state, posts: [...action.payload] }
+    case SET_POSTS:
+      return { ...state, posts: action.payload }
     case CREATE_POST:
       return { ...state, newPost: { ...action.payload } }
     case REMOVE_POST:

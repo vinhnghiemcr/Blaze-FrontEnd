@@ -7,7 +7,7 @@ export const GetPostByTrailId = (trailId) => {
     try {
       const posts = await services.GetPostofTrail(trailId)
       dispatch({
-        type: types.GET_POSTS,
+        type: types.SET_POSTS,
         payload: posts
       })
     } catch (error) {

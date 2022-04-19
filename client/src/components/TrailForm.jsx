@@ -1,5 +1,6 @@
+import { useEffect } from "react"
 import { connect } from "react-redux"
-import { CreateNewTrail, UpdateTrailForm } from '../store/actions/TrailActions'
+import { CreateNewTrail, UpdateTrailForm, PopulateTrailForm, EditTrail, ToggleShouldUpdateTrail } from '../store/actions/TrailActions'
 import { ToggleCreatingTrail } from '../store/actions/UserActions'
 
 const mapStateToProps = ({ userState, trailState }) => {
@@ -10,12 +11,21 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createTrail: (userId, data) => dispatch(CreateNewTrail(userId,data)),
     updateTrailForm: (data) => dispatch(UpdateTrailForm(data)),
-    toggleCreatingTrail: (value) => dispatch(ToggleCreatingTrail(value))
+    toggleCreatingTrail: (value) => dispatch(ToggleCreatingTrail(value)),
+    populateTrailForm: (formValues) => dispatch(PopulateTrailForm(formValues)),
+    editTrail: (trailId, userId, formValues) => dispatch(EditTrail(trailId, userId, formValues)),
+    toggleShouldUpdateTrail: () => dispatch(ToggleShouldUpdateTrail())
   }
 }
 
 const TrailForm = (props) => {
   let userId = props.userState.user.id
+
+  useEffect(() => {
+    if (props.trailState.shouldUpdateTrail) {
+      props.populateTrailForm(props.trailState.trail)
+    }
+  }, [])
 
   const handleChange = (e) => {
     props.updateTrailForm({[e.target.name]: e.target.value})
@@ -23,8 +33,13 @@ const TrailForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.createTrail(userId, props.trailState.newTrail)
-    props.toggleCreatingTrail(false)
+    if (props.trailState.shouldUpdateTrail) {
+      props.editTrail(props.trailState.trail.id, userId, props.trailState.newTrail)
+      props.toggleShouldUpdateTrail()
+    } else {
+      props.createTrail(userId, props.trailState.newTrail)
+      props.toggleCreatingTrail(false)
+    }
   }
 
   return (
@@ -114,7 +129,7 @@ const TrailForm = (props) => {
           />
         </div>
         <button disabled={!props.trailState.newTrail.name || !props.trailState.newTrail.location || !props.trailState.newTrail.stateName}>
-           Create Trail
+           {props.trailState.shouldUpdateTrail ? 'Update Trail' : 'Create Trail'}
         </button>
       </form>
     </div>
