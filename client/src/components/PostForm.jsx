@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { CreateNewPost, UpdateNewPostValue } from '../store/actions/PostActions'
-import { ToggleCreatingPost } from '../store/actions/UserActions'
+import { ToggleCreatingPost, GetUserPosts} from '../store/actions/UserActions'
 import { useNavigate } from "react-router-dom"
 
 const mapStateToProps = ({ userState, postState }) => {
@@ -11,7 +11,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createPost: (userId, data) => dispatch(CreateNewPost(userId,data)),
     updateNewPostValue: (data) => dispatch(UpdateNewPostValue(data)),
-    toggleCreatingPost: (value) => dispatch(ToggleCreatingPost(value))
+    toggleCreatingPost: (value) => dispatch(ToggleCreatingPost(value)),
+    fetchPosts: (userId) => dispatch(GetUserPosts(userId))
   }
 }
 
@@ -26,8 +27,8 @@ let navigate = useNavigate()
   const handlePostSubmission = (e) => {
     e.preventDefault()
     props.createPost(userId, props.postState.newPost)
+    props.fetchPosts(userId)
     props.toggleCreatingPost(false)
-    
   }
 
   return (

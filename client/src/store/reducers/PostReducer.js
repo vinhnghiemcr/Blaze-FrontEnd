@@ -1,6 +1,6 @@
 const {
   SET_POSTS,
-  CREATE_POST,
+  CLEAR_POST_FORM,
   REMOVE_POST,
   UPDATE_NEW_POST_VALUE,
   GET_POSTS_FROM_FOLLOWING_USER
@@ -21,7 +21,7 @@ const PostReducer = (state = iState, action) => {
   switch (action.type) {
     case SET_POSTS:
       return { ...state, posts: action.payload }
-    case CREATE_POST:
+    case CLEAR_POST_FORM:
       return { ...state, newPost: { ...action.payload } }
     case REMOVE_POST:
       return { ...state }

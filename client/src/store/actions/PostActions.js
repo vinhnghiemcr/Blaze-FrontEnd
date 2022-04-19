@@ -28,7 +28,7 @@ export const CreateNewPost = (userId, postFormValues) => {
     try {
       const post = await services.CreatePost(userId, postFormValues)
       dispatch({
-        type: types.CREATE_POST,
+        type: types.CLEAR_POST_FORM,
         payload: {
           title: '',
           content: '',
@@ -36,7 +36,9 @@ export const CreateNewPost = (userId, postFormValues) => {
           trailName: ''
         }
       })
-    } catch (error) {}
+    } catch (error) {
+      throw error
+    }
   }
 }
 
