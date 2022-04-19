@@ -13,7 +13,11 @@ const iState = {
   },
   posts: [],
   creatingPost: false,
-  creatingTrail: false
+  creatingTrail: false,
+  passwordBody: {
+    password: ''
+  },
+  deletingUser: false
 }
 
 const UserReducer = (state = iState, action) => {
@@ -34,10 +38,21 @@ const UserReducer = (state = iState, action) => {
         ...state,
         signupFormValues: { ...state.signupFormValues, ...action.payload }
       }
-      case types.TOGGLE_CREATING_POST:
-        return {...state, creatingPost: action.payload}
-      case types.TOGGLE_CREATING_TRAIL:
-        return {...state, creatingTrail: action.payload}
+    case types.TOGGLE_CREATING_POST:
+      return { ...state, creatingPost: action.payload }
+    case types.TOGGLE_CREATING_TRAIL:
+      return { ...state, creatingTrail: action.payload }
+    case types.DELETE_USER:
+      return { ...state, user: action.payload }
+    case types.TOGGLE_DELETE_USER_PASSWORD_INPUT:
+      return { ...state, deletingUser: !state.deletingUser }
+    case types.UPDATE_PASSWORD_BODY:
+      return {
+        ...state,
+        passwordBody: {
+          ...action.payload
+        }
+      }
     default:
       return { ...state }
   }
