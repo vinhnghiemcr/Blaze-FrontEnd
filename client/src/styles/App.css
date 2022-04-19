@@ -73,3 +73,8 @@ h2 {
 
 
 
+.map {
+  width: 50%;
+  height:300px;
+  margin: 20px auto;
+}
