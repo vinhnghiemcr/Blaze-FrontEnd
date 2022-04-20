@@ -96,6 +96,10 @@ const TrailForm = (props) => {
   const handleChange = (e) => {
     props.updateTrailForm({[e.target.name]: e.target.value})
   }
+  const handleChangeForState = (e) => {
+    // setState(state)
+    props.updateTrailForm({stateName: e.target.value})
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -189,14 +193,14 @@ const TrailForm = (props) => {
         <div className="input-wrapper">
           <label>State Name</label>
           <input
-            onChange={handleChange}
+            onChange={handleChangeForState}
             name="stateName"
             type="text"
             placeholder="Enter state name..."
-            value={state}
+            value={props.trailState.newTrail.stateName}
             required
            />
-           <Dropdown setState={setState} list={allStates} />
+           <Dropdown setState={handleChangeForState} list={allStates} />
         </div>
         <button disabled={!props.trailState.newTrail.name || !props.trailState.newTrail.location || !props.trailState.newTrail.stateName}>
            {props.trailState.shouldUpdateTrail ? 'Update Trail' : 'Create Trail'}
