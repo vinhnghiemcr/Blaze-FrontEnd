@@ -3,9 +3,7 @@ import { connect } from "react-redux"
 import { CreateNewTrail, UpdateTrailForm, PopulateTrailForm, EditTrail, ToggleShouldUpdateTrail } from '../store/actions/TrailActions'
 import { ToggleCreatingTrail } from '../store/actions/UserActions'
 
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
-
+import Dropdown from '../components/Dropdown'
 
 const allStates = [
   "Alabama",
@@ -87,7 +85,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const TrailForm = (props) => {
   let userId = props.userState.user.id
-  const [value, setValue] = useState("")
+  const [state, setState] = useState("")
 
   useEffect(() => {
     if (props.trailState.shouldUpdateTrail) {
@@ -109,9 +107,7 @@ const TrailForm = (props) => {
       props.toggleCreatingTrail(false)
     }
   }
-  const selectState = (e) => {
-    props.updateTrailForm({stateName: e.target.value})
-  }
+  
 
   return (
     <div className="form-wrapper">
@@ -149,18 +145,7 @@ const TrailForm = (props) => {
             required
            />
         </div>
-        <div className="input-wrapper">
-          <label>State Name</label>
-          
-          {/* <input
-            onChange={handleChange}
-            name="stateName"
-            type="text"
-            placeholder="Enter state name..."
-            value={props.trailState.newTrail.stateName}
-            required
-           /> */}
-        </div>
+        
         <div className="input-wrapper">
           <label>Difficulty</label>
           <input
@@ -201,17 +186,17 @@ const TrailForm = (props) => {
             value={props.trailState.newTrail.routeType}
           />
         </div>
-        <div>
-            <DropdownButton
-              variant="success"
-              align="end"
-              title="States"
-              id="dropdown-menu-align-right"
-              onSelect={selectState}
-            > 
-            {allStates.map((state) => <Dropdown.Item eventKey={state}>{state}</Dropdown.Item>)}
-              
-            </DropdownButton>
+        <div className="input-wrapper">
+          <label>State Name</label>
+          <input
+            onChange={handleChange}
+            name="stateName"
+            type="text"
+            placeholder="Enter state name..."
+            value={state}
+            required
+           />
+           <Dropdown setState={setState} list={allStates} />
         </div>
         <button disabled={!props.trailState.newTrail.name || !props.trailState.newTrail.location || !props.trailState.newTrail.stateName}>
            {props.trailState.shouldUpdateTrail ? 'Update Trail' : 'Create Trail'}

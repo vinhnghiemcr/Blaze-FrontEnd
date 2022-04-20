@@ -63,10 +63,6 @@ const App = (props) => {
           <Route path="/state/:stateId" element={<StatePage />} />
           <Route path="/trail/:trailId" element={<TrailPage />} />
           <Route path="/timeline" element={<TimelinePage />} />
-          {/* <Route
-            path="/feed"
-            element={<Feed user={user} authenticated={authenticated} />}
-          /> */}
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
