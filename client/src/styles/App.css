@@ -116,10 +116,52 @@ a {
   padding: 0 20px;
 }
 
+
+/* Trail Components */
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dd-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+}
+
+svg {
+  margin: 0 auto; 
+  margin-bottom: 2px;
+}
+
+.dd-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+  z-index: 1;
+  background-color: #afb5a2;
+}
+
+.dd-list-item {
+  width: 100%;
+  margin: 0;
+}
+
 /* Heading for pages */
 .heading {
   font-size: 50px;
+  color:white; 
 }
+
+
+
+
 
 header {
   display: flex;
@@ -204,14 +246,14 @@ button:focus {
 .tree {
   position: absolute;
   bottom: 92%;
-  left: 60%;
+  left: 20%;
 }
 
 .treeOne {
   margin:0; 
   width: 60px; 
   position: relative;
-  animation: danceOne 5s infinite;
+  animation: danceOne 2s infinite;
 }
 
 .treeTwo {
@@ -227,6 +269,8 @@ button:focus {
 }
 
 @keyframes danceOne {
+  /* from {top: 0px; z-index: 1;}
+  to {top: 10px;z-index: 1;} */
   0%   {transform: rotate(25deg);}
   25%  {transform: rotate(5deg) !important;}
   50%  {transform: rotate(0deg);}
