@@ -40,10 +40,14 @@ const Post = (props) => {
   
   return (
     <div className="post-wrapper">
-      <div>
-        <h2>{props.post.title}</h2>
+      <h2>{props.post.title}</h2>
+      <div className = 'post-body'>
+        <div></div>
         <img className="postImg" src={props.post.img} alt={props.post.id}/>
-        <h4>{props.post.content}</h4>
+        <div className="postInfo">
+          <h2>By: {props.userState.user.trailName}</h2>
+          <h4>{props.post.content}</h4>
+        </div>
       </div>
       {viewComments && (
         <div className="comments-wrapper">
@@ -56,7 +60,7 @@ const Post = (props) => {
         {viewComments ? 'Hide Comments' : 'View Comments'}
       </button>
       {props.userState.authenticated && 
-        <div>
+        <div className = "comment-form-container">
           <textarea
             name="content"
             placeholder="Add a comment..."
@@ -71,6 +75,7 @@ const Post = (props) => {
           </button>
         </div>
       }
+      <hr/>
     </div>
   )
 }
