@@ -1,7 +1,74 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { CreateNewTrail, UpdateTrailForm, PopulateTrailForm, EditTrail, ToggleShouldUpdateTrail } from '../store/actions/TrailActions'
 import { ToggleCreatingTrail } from '../store/actions/UserActions'
+
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+
+
+const allStates = [
+  "Alabama",
+  "Alaska",
+  "American Samoa",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "District of Columbia",
+  "Federated States of Micronesia",
+  "Florida",
+  "Georgia",
+  "Guam",
+  "Hawaii",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Iowa",
+  "Kansas",
+  "Kentucky",
+  "Louisiana",
+  "Maine",
+  "Marshall Islands",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Mississippi",
+  "Missouri",
+  "Montana",
+  "Nebraska",
+  "Nevada",
+  "New Hampshire",
+  "New Jersey",
+  "New Mexico",
+  "New York",
+  "North Carolina",
+  "North Dakota",
+  "Northern Mariana Islands",
+  "Ohio",
+  "Oklahoma",
+  "Oregon",
+  "Palau",
+  "Pennsylvania",
+  "Puerto Rico",
+  "Rhode Island",
+  "South Carolina",
+  "South Dakota",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Vermont",
+  "Virgin Island",
+  "Virginia",
+  "Washington",
+  "West Virginia",
+  "Wisconsin",
+  "Wyoming"
+]
+
 
 const mapStateToProps = ({ userState, trailState }) => {
   return { userState, trailState }
@@ -20,6 +87,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const TrailForm = (props) => {
   let userId = props.userState.user.id
+  const [value, setValue] = useState("")
 
   useEffect(() => {
     if (props.trailState.shouldUpdateTrail) {
@@ -41,9 +109,13 @@ const TrailForm = (props) => {
       props.toggleCreatingTrail(false)
     }
   }
+  const selectState = (e) => {
+    props.updateTrailForm({stateName: e.target.value})
+  }
 
   return (
     <div className="form-wrapper">
+      
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label>Trail Name</label>
@@ -79,14 +151,15 @@ const TrailForm = (props) => {
         </div>
         <div className="input-wrapper">
           <label>State Name</label>
-          <input
+          
+          {/* <input
             onChange={handleChange}
             name="stateName"
             type="text"
             placeholder="Enter state name..."
             value={props.trailState.newTrail.stateName}
             required
-           />
+           /> */}
         </div>
         <div className="input-wrapper">
           <label>Difficulty</label>
@@ -127,6 +200,18 @@ const TrailForm = (props) => {
             placeholder="Enter route type..."
             value={props.trailState.newTrail.routeType}
           />
+        </div>
+        <div>
+            <DropdownButton
+              variant="success"
+              align="end"
+              title="States"
+              id="dropdown-menu-align-right"
+              onSelect={selectState}
+            > 
+            {allStates.map((state) => <Dropdown.Item eventKey={state}>{state}</Dropdown.Item>)}
+              
+            </DropdownButton>
         </div>
         <button disabled={!props.trailState.newTrail.name || !props.trailState.newTrail.location || !props.trailState.newTrail.stateName}>
            {props.trailState.shouldUpdateTrail ? 'Update Trail' : 'Create Trail'}
