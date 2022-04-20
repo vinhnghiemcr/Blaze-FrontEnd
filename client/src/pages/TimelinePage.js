@@ -26,7 +26,8 @@ const TimelinePage = (props) => {
         <h1>Not authorized</h1>
       ) : (
         <div>
-          <h1>Timeline</h1>
+          <h1 className="heading">Timeline</h1>
+          <hr />
           <div className="timeline">
             {props.postState.followingUserPosts.map((post) => (
               <Post key={post.id} post={post} />
