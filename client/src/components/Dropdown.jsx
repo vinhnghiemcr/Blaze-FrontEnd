@@ -4,10 +4,6 @@ import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md"
 const Dropdown = ({setState, list}) => {
     const [isListOpen, setIsListOpen] = useState(false)
 
-    const selectItem = (state) => {
-        setState(state)
-    }
-
     const toggleList = () => {
         setIsListOpen(!isListOpen)
     }
@@ -32,7 +28,8 @@ const Dropdown = ({setState, list}) => {
                                 type="button"
                                 className="dd-list-item"
                                 key={index}
-                                onClick={() => selectItem(state)}
+                                value={state}
+                                onClick={(e) => setState(e)}
                             >
                                 {state}
                             </button>
