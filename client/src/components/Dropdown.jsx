@@ -19,7 +19,7 @@ const Dropdown = ({setState, list}) => {
                 className="dd-header"
                 onClick={toggleList}
             >
-                {isListOpen ? <MdArrowDropDown /> : <MdArrowDropUp />}
+                {isListOpen ? <MdArrowDropUp /> : <MdArrowDropDown />}
             </button>
             <div>
                 {isListOpen && (
