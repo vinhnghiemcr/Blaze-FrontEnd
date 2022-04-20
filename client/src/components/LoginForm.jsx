@@ -22,6 +22,8 @@ const LoginForm = (props) => {
 
     return (
         <div>
+          <h2>Login</h2>
+          <hr/>
             <div className="card-overlay centered">
         <form className="col" onSubmit={props.handleSubmit}>
           <div className="input-wrapper">

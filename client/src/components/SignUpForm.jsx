@@ -22,13 +22,15 @@ const SignUpForm = (props) => {
     return (
         <div>
             <form className="col" onSubmit={props.handleSubmit}>
+                <h2>Register</h2>
+                <hr/>
                 <div className="input-wrapper">
                     <label htmlFor="name">Name</label>
                     <input
                     onChange={handleChange}
                     name="name"
                     type="text"
-                    placeholder="Nghiem Jenna Molly"
+                    placeholder="Your name here..."
                     value={props.userState.signupFormValues.name}
                     required
                     />
@@ -39,7 +41,7 @@ const SignUpForm = (props) => {
                     onChange={handleChange}
                     name="trailName"
                     type="text"
-                    placeholder="Monky King"
+                    placeholder="Trail Nickname"
                     value={props.userState.signupFormValues.trailName}
                     required
                     />
@@ -62,6 +64,7 @@ const SignUpForm = (props) => {
                     onChange={handleChange}
                     type="password"
                     name="password"
+                    placeholder="password"
                     value={props.userState.signupFormValues.password}
                     required
                     />
@@ -72,6 +75,7 @@ const SignUpForm = (props) => {
                     onChange={handleChange}
                     type="password"
                     name="confirmPassword"
+                    placeholder="password x2"
                     value={props.userState.signupFormValues.confirmPassword}
                     required
                     />

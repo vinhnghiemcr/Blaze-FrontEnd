@@ -70,6 +70,7 @@ const UserPage = (props) => {
         <h1>Not authorized</h1>
       ) : (
         <div>
+          <h4 className="user-profile-trail-name">User's Trail Name:</h4>
           <h1 className="trail-name">{user.trailName}</h1>
           <button onClick={toggleDeleteUserPasswordInput}>
             Delete Profile
@@ -95,12 +96,12 @@ const UserPage = (props) => {
           ) : (
             <button onClick={addTrail}>Add Trail</button>
           )}
-
+          <hr />
           {posts.length === 0
             ? 'Post something man'
             : posts.map((post) => <Post key={post.id} post={post} />)}
         </div>
-      )}
+      )}{' '}
     </div>
   )
 }
