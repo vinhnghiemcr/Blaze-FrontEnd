@@ -189,12 +189,22 @@ h1 {
 
 h2 {
   margin:3px;
+  color: white; 
 }
 
 h4 {
   margin: 3px;
 }
 
+/* form */
+.col {
+  margin-top:23px;
+}
+
+label {
+  margin:4px; 
+  color: white;
+}
 
 /* CSS from https://getcssscan.com/css-buttons-examples */
 button {
