@@ -116,7 +116,18 @@ a {
   padding: 0 20px;
 }
 
+/* User Page */
+.trail-name{
+  font-family: 'Indie Flower', cursive;
+  margin: 8px;
+  font-size: 50px;
+  color:white; 
+}
 
+.user-profile-trail-name {
+  margin-top: 18px;
+  color:white; 
+}
 /* Trail Components */
 .input-wrapper {
   display: flex;
@@ -158,10 +169,6 @@ svg {
   font-size: 50px;
   color:white; 
 }
-
-
-
-
 
 header {
   display: flex;
@@ -253,7 +260,7 @@ button:focus {
   margin:0; 
   width: 60px; 
   position: relative;
-  animation: danceOne 2s infinite;
+  animation: danceOne 5s infinite;
 }
 
 .treeTwo {
