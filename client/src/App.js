@@ -17,6 +17,7 @@ import {
   SetUserStateToDefault
 } from './store/actions/UserActions'
 import TimelinePage from './pages/TimelinePage'
+import Footer from './components/Footer'
 
 const mapStateToProps = ({ userState }) => {
   return { userState }
@@ -66,6 +67,7 @@ const App = (props) => {
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   )
 }
