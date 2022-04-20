@@ -10,9 +10,9 @@ export const CreateNewComment = (userId, postId, commentFormValues) => {
         postId,
         commentFormValues
       )
-      dispatch({
-        type: types.CLEAR_COMMENT_CONTENT
-      })
+      // dispatch({
+      //   type: types.CLEAR_COMMENT_CONTENT
+      // })
     } catch (error) {
       throw error
     }

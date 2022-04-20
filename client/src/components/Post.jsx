@@ -1,40 +1,43 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 import { connect } from "react-redux"
-import { CreateNewComment, UpdateNewCommentContent, GetPostComments, ToggleViewComments } from '../store/actions/CommentActions'
 import Comment from './Comment'
+import { GetPostComments, CreateComment } from '../services/Comment'
 
-const mapStateToProps = ({ commentState, userState }) => {
-  return { commentState, userState }
+const mapStateToProps = ({ userState }) => {
+  return { userState }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchComments: (postId) => dispatch(GetPostComments(postId)),
-    createNewComment: (userId, postId, commentFormValues) => dispatch(CreateNewComment(userId, postId, commentFormValues)),
-    updateNewCommentContent: (data) => dispatch(UpdateNewCommentContent(data)),
-    toggleViewComments: () => dispatch(ToggleViewComments())
-  }
-}
 
 const Post = (props) => {
+  const [newComment, setNewComment] = useState('')
+  const [comments, setComments] = useState([])
+  const [viewComments, toggleViewComments] = useState(false)
 
-  useEffect(() => {
-    props.fetchComments(props.post.id)
+  const fetchComments = async () => {
+    const result = await GetPostComments(props.post.id)
+    setComments(result)
+  }
+  useEffect( () => {
+    
+      fetchComments()    
+  
   }, [])
 
   const handleChange = (e) => {
-    props.updateNewCommentContent({
-      [e.target.name]: e.target.value
-    })
+     setNewComment(e.target.value)
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    props.createNewComment(props.userState.user.id, props.post.id, props.commentState.newComment)
-    props.fetchComments(props.post.id)
-  }
+  const handleSubmit = async () => {
+    const comment = await CreateComment(props.userState.user.id, props.post.id, {content: newComment})
+    console.log(comment, "COMMENT from Create Comment")
+    fetchComments() 
+    setNewComment('')
 
+  }
+  const handleClickViewComment = () => {
+    toggleViewComments(!viewComments)
+  }
+  
   return (
     <div className="post-wrapper">
       <div>
@@ -42,26 +45,26 @@ const Post = (props) => {
         <img className="postImg" src={props.post.img} alt={props.post.id}/>
         <h4>{props.post.content}</h4>
       </div>
-      {props.commentState.showComments && (
+      {viewComments && (
         <div className="comments-wrapper">
-          {props.commentState.comments.map((comment) => (
+          {comments.map((comment) => (
             <Comment key={comment.id} comment={comment} />
           ))}
         </div>
       )}
-      <button onClick={props.toggleViewComments}>
-        {props.commentState.showComments ? 'Hide Comments' : 'View Comments'}
+      <button onClick={handleClickViewComment}>
+        {viewComments ? 'Hide Comments' : 'View Comments'}
       </button>
       {props.userState.authenticated && 
         <div>
           <textarea
             name="content"
             placeholder="Add a comment..."
-            value={props.commentState.newComment.content}
+            value={newComment}
             onChange={handleChange}
           />
           <button
-            disabled={!props.commentState.newComment.content}
+            disabled={!newComment}
             onClick={handleSubmit}
           >
             Add Comment
@@ -72,4 +75,4 @@ const Post = (props) => {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
+export default connect(mapStateToProps)(Post)
