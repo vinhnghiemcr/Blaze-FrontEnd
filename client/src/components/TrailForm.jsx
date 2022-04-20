@@ -85,7 +85,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const TrailForm = (props) => {
   let userId = props.userState.user.id
-  const [state, setState] = useState("")
 
   useEffect(() => {
     if (props.trailState.shouldUpdateTrail) {
@@ -97,7 +96,6 @@ const TrailForm = (props) => {
     props.updateTrailForm({[e.target.name]: e.target.value})
   }
   const handleChangeForState = (e) => {
-    // setState(state)
     props.updateTrailForm({stateName: e.target.value})
   }
 
@@ -200,7 +198,7 @@ const TrailForm = (props) => {
             value={props.trailState.newTrail.stateName}
             required
            />
-           <Dropdown setState={handleChangeForState} list={allStates} />
+           <Dropdown setName={handleChangeForState} list={allStates} />
         </div>
         <button disabled={!props.trailState.newTrail.name || !props.trailState.newTrail.location || !props.trailState.newTrail.stateName}>
            {props.trailState.shouldUpdateTrail ? 'Update Trail' : 'Create Trail'}

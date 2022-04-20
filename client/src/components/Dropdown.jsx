@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md"
 
-const Dropdown = ({setState, list}) => {
+const Dropdown = ({setName, list}) => {
     const [isListOpen, setIsListOpen] = useState(false)
 
     const toggleList = () => {
@@ -23,15 +23,15 @@ const Dropdown = ({setState, list}) => {
                         role="list"
                         className="dd-list"
                     >
-                        {list.map((state, index) => (
+                        {list.map((name, index) => (
                             <button
                                 type="button"
                                 className="dd-list-item"
                                 key={index}
-                                value={state}
-                                onClick={(e) => setState(e)}
+                                value={name}
+                                onClick={(e) => setName(e)}
                             >
-                                {state}
+                                {name}
                             </button>
                         ))}
                     </div>
