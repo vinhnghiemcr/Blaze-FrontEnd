@@ -26,11 +26,12 @@ const mapDispatchToProps = (dispatch) => {
     toggleCreatingTrail: (value) => dispatch(ToggleCreatingTrail(value)),
     deleteUser: (userId, passwordBody) =>
       dispatch(DeleteUserById(userId, passwordBody)),
-    toggleDeleteUserPasswordInput: () => dispatch(ToggleDeleteUserPasswordInput()),
-    handlePasswordInputChange: (password) => dispatch(HandlePasswordInputChange(password)),
+    toggleDeleteUserPasswordInput: () =>
+      dispatch(ToggleDeleteUserPasswordInput()),
+    handlePasswordInputChange: (password) =>
+      dispatch(HandlePasswordInputChange(password)),
     setUser: (user) => dispatch(SetUser(user)),
     toggleAuthenticated: (value) => dispatch(ToggleAuthenticated(value))
-
   }
 }
 
@@ -38,7 +39,9 @@ const UserPage = (props) => {
   let navigate = useNavigate()
   const { user, posts, creatingPost, creatingTrail } = props.userState
   useEffect(() => {
-    props.fetchPosts(props.userState.user.id)
+    if (props.userState.authenticated) {
+      props.fetchPosts(props.userState.user.id)
+    }
   }, [creatingPost, creatingTrail])
 
   const addPost = () => {
@@ -58,39 +61,46 @@ const UserPage = (props) => {
     props.toggleDeleteUserPasswordInput()
   }
   const handlePasswordInputChange = (e) => {
-    props.handlePasswordInputChange({password: e.target.value})
+    props.handlePasswordInputChange({ password: e.target.value })
   }
 
   return (
     <div>
-      <h1 className='trail-name'>{user.trailName}</h1>
-      <button onClick={toggleDeleteUserPasswordInput}>Delete Profile</button>
-      {props.userState.deletingUser && 
+      {!props.userState.authenticated ? (
+        <h1>Not authorized</h1>
+      ) : (
         <div>
-          <input 
-            type="password"
-            value={props.userState.passwordBody.password}
-            placeholder="Enter your password..."
-            onChange={handlePasswordInputChange} 
-          />
-          <button onClick={deleteUserProfile}>Submit</button>
-        </div>
-      }    
-      {creatingPost ? (
-        <PostForm />
-      ) : (
-        <button onClick={addPost}>Add Post</button>
-      )}
-      {creatingTrail ? (
-        <TrailForm />
-      ) : (
-        <button onClick={addTrail}>Add Trail</button>
-      )}
+          <h1 className="trail-name">{user.trailName}</h1>
+          <button onClick={toggleDeleteUserPasswordInput}>
+            Delete Profile
+          </button>
+          {props.userState.deletingUser && (
+            <div>
+              <input
+                type="password"
+                value={props.userState.passwordBody.password}
+                placeholder="Enter your password..."
+                onChange={handlePasswordInputChange}
+              />
+              <button onClick={deleteUserProfile}>Submit</button>
+            </div>
+          )}
+          {creatingPost ? (
+            <PostForm />
+          ) : (
+            <button onClick={addPost}>Add Post</button>
+          )}
+          {creatingTrail ? (
+            <TrailForm />
+          ) : (
+            <button onClick={addTrail}>Add Trail</button>
+          )}
 
-      {posts.length === 0
-        ? 'Post something man'
-        : posts.map((post) => <Post key={post.id} post={post} />)}
-        
+          {posts.length === 0
+            ? 'Post something man'
+            : posts.map((post) => <Post key={post.id} post={post} />)}
+        </div>
+      )}
     </div>
   )
 }

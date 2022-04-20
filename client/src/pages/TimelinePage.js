@@ -15,17 +15,25 @@ const mapDispatchToProps = (dispatch) => {
 
 const TimelinePage = (props) => {
   useEffect(() => {
-    props.fetchPosts(props.userState.id)
+    if (props.userState.authenticated) {
+      props.fetchPosts(props.userState.user.id)
+    }
   }, [])
 
   return (
     <div>
-      <h1>Timeline</h1>
-      <div className="timeline">
-        {props.postState.followingUserPosts.map((post) => (
-          <Post key={post.id} post={post} />
-        ))}
-      </div>
+      {!props.userState.authenticated ? (
+        <h1>Not authorized</h1>
+      ) : (
+        <div>
+          <h1>Timeline</h1>
+          <div className="timeline">
+            {props.postState.followingUserPosts.map((post) => (
+              <Post key={post.id} post={post} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
