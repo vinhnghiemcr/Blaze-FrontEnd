@@ -22,14 +22,18 @@ const StatePage = (props) => {
   }, [])
 
   return (
-    <div>
-      <h2>{props.locationState.state.name}</h2>
+    <div className="state-wrapper">
+      <h2 className="heading">{props.locationState.state.name}</h2>
+      <hr />
       <img
-        className="stateImg"
+        className="state-page-image"
         src={props.locationState.state.img}
         alt={props.locationState.state.name}
       />
-      <h4>{props.locationState.state.description}</h4>
+      <h4 className="state-description">
+        {props.locationState.state.description}
+      </h4>
+      <h1>Hiking Trails</h1>
       <div className="trails-wrapper">
         {props.locationState.trails.map((trail) => (
           <Link key={trail.id} to={`/trail/${trail.id}`}>
