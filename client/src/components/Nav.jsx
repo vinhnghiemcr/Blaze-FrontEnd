@@ -36,11 +36,11 @@ const Nav = (props) => {
           <img className ="navLogo" src="https://i.imgur.com/rggyD1j.png" alt="logo"/> 
         </div>
       </Link>
-      {/* <div className='tree'>
+      <div className='tree'>
         <img className ="treeOne" src="https://i.imgur.com/t85I3wt.png" alt="treeOne"/>
         <img className ="treeTwo" src="https://i.imgur.com/2qmPB9z.png" alt="treeTwo"/>
         <img className ="treeThree" src="https://i.imgur.com/9AAkXsQ.png" alt="treeThree"/>
-      </div> */}
+      </div>
       {props.userState.authenticated && props.userState.user ? authenticatedOptions : publicOptions}
     </header>
   )

@@ -44,7 +44,8 @@ const TrailPage = (props) => {
   return (
     <div>
       <div>
-        <h2>{props.trailState.trail.name}</h2>
+        <h2 className="heading">{props.trailState.trail.name}</h2>
+        <hr />
         <img
           className="trailImg"
           src={props.trailState.trail.img}
