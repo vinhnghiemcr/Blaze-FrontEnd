@@ -11,7 +11,11 @@ import UserPage from './pages/UserPage'
 import AboutPage from './pages/AboutPage'
 import './styles/App.css'
 import { CheckSession } from './services/User'
-import { SetUser, ToggleAuthenticated, SetUserStateToDefault } from './store/actions/UserActions'
+import {
+  SetUser,
+  ToggleAuthenticated,
+  SetUserStateToDefault
+} from './store/actions/UserActions'
 import TimelinePage from './pages/TimelinePage'
 
 const mapStateToProps = ({ userState }) => {

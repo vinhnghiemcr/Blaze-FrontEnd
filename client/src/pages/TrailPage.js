@@ -52,16 +52,17 @@ const TrailPage = (props) => {
         />
         <h4>{props.trailState.trail.description}</h4>
         {props.trailState.shouldUpdateTrail && <TrailForm />}
-        {props.trailState.trail.userId === props.userState.user.id && (
-          <div>
-            <button onClick={renderEditForm}>
-              {props.trailState.shouldUpdateTrail
-                ? 'Hide Form'
-                : 'Update Trail'}
-            </button>
-            <button onClick={deleteTrail}>Delete</button>
-          </div>
-        )}
+        {props.userState.authenticated &&
+          props.trailState.trail.userId === props.userState.user.id && (
+            <div>
+              <button onClick={renderEditForm}>
+                {props.trailState.shouldUpdateTrail
+                  ? 'Hide Form'
+                  : 'Update Trail'}
+              </button>
+              <button onClick={deleteTrail}>Delete</button>
+            </div>
+          )}
       </div>
       <div>
         {props.postState.posts.map((post) => (
