@@ -9,6 +9,7 @@ import {
 import Post from '../components/Post'
 import MapWrapper from '../components/MapWrapper'
 import TrailForm from '../components/TrailForm'
+import MapContainer from '../components/MapContainer'
 
 const mapStateToProps = ({ userState, trailState, postState }) => {
   return { userState, trailState, postState }
@@ -67,7 +68,8 @@ const TrailPage = (props) => {
           <Post key={post.id} post={post} />
         ))}
       </div>
-      {/* <MapWrapper trailId={trailId} /> */}
+      {/* <MapContainer /> */}
+      <MapContainer trail={props.trailState.trail} />
     </div>
   )
 }
