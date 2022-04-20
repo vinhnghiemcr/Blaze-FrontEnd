@@ -31,8 +31,8 @@ const Post = (props) => {
     const comment = await CreateComment(props.userState.user.id, props.post.id, {content: newComment})
     console.log(comment, "COMMENT from Create Comment")
     fetchComments() 
-    // setComments([...comments, comment ])
     setNewComment('')
+
   }
   const handleClickViewComment = () => {
     toggleViewComments(!viewComments)
