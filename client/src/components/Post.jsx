@@ -32,6 +32,7 @@ const Post = (props) => {
   const handleSubmit = e => {
     e.preventDefault()
     props.createNewComment(props.userState.user.id, props.post.id, props.commentState.newComment)
+    props.fetchComments(props.post.id)
   }
 
   return (
