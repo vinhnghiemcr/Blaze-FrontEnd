@@ -1,5 +1,15 @@
 import Client from './api'
 
+export const GetAllTrailNames = async () => {
+  try {
+    const res = await Client.get('/trail')
+    console.log(res.data, "Response from server of Get trail names")
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const GetTrailAndPosts = async (trailId) => {
   try {
     const res = await Client.get(`/trail/${trailId}`)

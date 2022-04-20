@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "google-maps-react": "^2.0.6"
+    "google-maps-react": "^2.0.6",
+    "grommet": "^2.22.0",
+    "react-bootstrap-dropdown": "^0.3.0",
+    "styled-components": "^5.3.5"
   }
 }

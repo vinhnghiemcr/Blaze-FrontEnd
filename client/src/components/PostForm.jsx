@@ -1,7 +1,11 @@
 import { connect } from "react-redux"
 import { CreateNewPost, UpdateNewPostValue } from '../store/actions/PostActions'
 import { ToggleCreatingPost, GetUserPosts} from '../store/actions/UserActions'
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { GetAllTrailNames } from "../services/Trail"
+import Dropdown from "./Dropdown"
+
+
 
 const mapStateToProps = ({ userState, postState }) => {
   return { userState, postState }
@@ -17,8 +21,15 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const PostForm = (props) => {
-let navigate = useNavigate()
+const [trailNames, settrailNames] = useState([])
 
+const getAllTrailNames = async () => {
+  const nameOfAllTrails =  await GetAllTrailNames()
+  settrailNames(nameOfAllTrails)
+}
+useEffect(() => {
+  getAllTrailNames()
+}, [])
   let userId = props.userState.user.id
   const handleChange = (e) => {
     props.updateNewPostValue({[e.target.name]: e.target.value})
@@ -31,6 +42,10 @@ let navigate = useNavigate()
     props.toggleCreatingPost(false)
   }
 
+  const handleChangeForTrailName = (e) => {
+    props.updateNewPostValue({trailName: e.target.value})
+  }
+ 
   return (
     <div className="form-wrapper">
       <form onSubmit={handlePostSubmission}>
@@ -57,17 +72,6 @@ let navigate = useNavigate()
           />
         </div>
         <div className="input-wrapper">
-          <label>Trail Name</label>
-          <input
-            onChange={handleChange}
-            name="trailName"
-            type="text"
-            placeholder="Enter trail name..."
-            value={props.postState.newPost.trailName}
-            required
-           />
-        </div>
-        <div className="input-wrapper">
           <label>Image</label>
           <input
             onChange={handleChange}
@@ -76,6 +80,18 @@ let navigate = useNavigate()
             placeholder="Enter image path..."
             value={props.postState.newPost.img}
           />
+        </div>
+        <div className="input-wrapper">
+          <label>Trail Name</label>
+          <input
+            onChange={handleChangeForTrailName}
+            name="trailName"
+            type="text"
+            placeholder="Enter trail name..."
+            value={props.postState.newPost.trailName}
+            required
+           />
+           <Dropdown setName={handleChangeForTrailName} list={trailNames} />
         </div>
         <button disabled={!props.postState.newPost.title || !props.postState.newPost.content || !props.postState.newPost.trailName}>
            Submit Post
