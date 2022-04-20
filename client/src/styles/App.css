@@ -311,6 +311,13 @@ button:focus {
   100% {transform: rotate(-15deg);}
 }
 
+.footer-design {
+  overflow: hidden;
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+}
+
 .map {
   width: 50%;
   height:300px;
