@@ -45,10 +45,14 @@ useEffect(() => {
   const handleChangeForTrailName = (e) => {
     props.updateNewPostValue({trailName: e.target.value})
   }
+  const closePostForm = () => {
+    props.toggleCreatingPost(false)
+  }
  
   return (
-    <div className="form-wrapper">
-      <form onSubmit={handlePostSubmission}>
+    <div className="post-form">
+      <button onClick={closePostForm} className='close-modal'>X</button>
+      <form className="form-wrapper" onSubmit={handlePostSubmission}>
         <div className="input-wrapper">
           <label>Title</label>
           <input
@@ -90,8 +94,8 @@ useEffect(() => {
             placeholder="Enter trail name..."
             value={props.postState.newPost.trailName}
             required
-           />
-           <Dropdown setName={handleChangeForTrailName} list={trailNames} />
+          />
+          <Dropdown setName={handleChangeForTrailName} list={trailNames} />
         </div>
         <button disabled={!props.postState.newPost.title || !props.postState.newPost.content || !props.postState.newPost.trailName}>
            Submit Post

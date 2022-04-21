@@ -19,7 +19,7 @@ const ImageInput = () => {
     const onImageChange = (e) => {
         setImages([...e.target.files])
     }
-
+    console.log(images, "IMAGES from ImageInput")
     return (
         <div className='input-image'>
             <input
@@ -28,7 +28,7 @@ const ImageInput = () => {
                 onChange={onImageChange}
             />
 
-            {/* {imageURLs.map(imageURL => <img  src={imageURL} />)} */}
+            {imageURLs.map(imageURL => <img  src={imageURL} />)}
         </div>
     )
 }

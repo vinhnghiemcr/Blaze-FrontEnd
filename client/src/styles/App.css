@@ -212,6 +212,51 @@ label {
   color: white;
 }
 
+.input-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.input-wrapper label {
+  text-align: end;
+  margin-right: 30px;
+}
+.input-wrapper input, .input-wrapper textarea {
+  width: 300px;
+  border-radius: 5px;
+}
+
+.close-modal {
+  top: -20px;
+  right: -275px;
+  position: relative;
+  background: transparent;
+  border: 0;
+}
+
+.post-form-container, .trail-form-container {
+  position: fixed; 
+  z-index: 1; 
+  top: 0%;
+  left: 0%;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: #9ea68dda;
+  display: block;
+  margin: auto;
+}
+.post-form, .trail-form {
+  padding: 20px;
+  border: 2px solid #172601;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 200px;
+  display: block;
+  max-width: 30%;
+  max-height: 100%;
+  padding: 20px;
+}
+
 /* CSS from https://getcssscan.com/css-buttons-examples */
 button {
   align-self: center;

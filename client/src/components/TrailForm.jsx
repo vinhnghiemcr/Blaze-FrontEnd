@@ -111,10 +111,13 @@ const TrailForm = (props) => {
     }
   }
   
+  const closeTrailForm = () => {
+    props.toggleCreatingTrail(false)
+  }
 
   return (
-    <div className="form-wrapper">
-      
+    <div className="trail-form">
+      <button onClick={closeTrailForm} className='close-modal'>X</button>
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label>Trail Name</label>
@@ -198,8 +201,9 @@ const TrailForm = (props) => {
             placeholder="Enter state name..."
             value={props.trailState.newTrail.stateName}
             required
-           />
-           <Dropdown setName={handleChangeForState} list={allStates} />
+          />
+          <Dropdown setName={handleChangeForState} list={allStates} />
+           
         </div>
         <div className="input-wrapper">
           <label>Image Files</label>

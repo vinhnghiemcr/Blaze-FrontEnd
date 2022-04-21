@@ -47,6 +47,7 @@ const UserPage = (props) => {
   const addPost = () => {
     props.toggleCreatingPost(true)
   }
+
   const addTrail = () => {
     props.toggleCreatingTrail(true)
   }
@@ -87,12 +88,16 @@ const UserPage = (props) => {
             </div>
           )}
           {creatingPost ? (
-            <PostForm />
+            <div className='post-form-container'>
+              <PostForm />              
+            </div>
           ) : (
             <button onClick={addPost}>Add Post</button>
           )}
           {creatingTrail ? (
-            <TrailForm />
+            <div className='trail-form-container'>
+              <TrailForm />
+            </div>
           ) : (
             <button onClick={addTrail}>Add Trail</button>
           )}
