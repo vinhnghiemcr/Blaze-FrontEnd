@@ -30,7 +30,7 @@ const SignIn = (props) => {
     props.updateFormValues({ email: '', password: '' })
     props.setUser(payload)
     props.toggleAuthenticated(true)
-    navigate(-1)
+    navigate(`/user`)
   }
 
   return (

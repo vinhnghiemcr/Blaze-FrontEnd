@@ -86,7 +86,7 @@ const SignUpForm = (props) => {
                     (!props.userState.signupFormValues.password &&
                         props.userState.signupFormValues.confirmPassword === props.userState.signupFormValues.password)
                 }>
-                    Sign In
+                    Sign Up
                 </button>
         </form>
         </div>

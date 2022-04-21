@@ -4,6 +4,7 @@ import { CreateNewTrail, UpdateTrailForm, PopulateTrailForm, EditTrail, ToggleSh
 import { ToggleCreatingTrail } from '../store/actions/UserActions'
 
 import Dropdown from '../components/Dropdown'
+import ImageInput from "./ImageInput"
 
 const allStates = [
   "Alabama",
@@ -199,6 +200,10 @@ const TrailForm = (props) => {
             required
            />
            <Dropdown setName={handleChangeForState} list={allStates} />
+        </div>
+        <div className="input-wrapper">
+          <label>Image Files</label>
+          <ImageInput />
         </div>
         <button disabled={!props.trailState.newTrail.name || !props.trailState.newTrail.location || !props.trailState.newTrail.stateName}>
            {props.trailState.shouldUpdateTrail ? 'Update Trail' : 'Create Trail'}

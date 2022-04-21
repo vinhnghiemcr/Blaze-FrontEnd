@@ -328,3 +328,6 @@ button:focus {
 .mapContainer h1 {
   color: black;
 }
+.input-image img {
+  width: 50px;
+}
