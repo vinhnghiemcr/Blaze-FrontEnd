@@ -26,7 +26,7 @@ const LoginForm = (props) => {
           <hr/>
             <div className="card-overlay centered">
         <form className="col" onSubmit={props.handleSubmit}>
-          <div className="input-wrapper">
+          <div className="login-input-wrapper">
             <label htmlFor="email">Email</label>
             <input
               onChange={handleChange}
@@ -37,7 +37,7 @@ const LoginForm = (props) => {
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="login-input-wrapper">
             <label htmlFor="password">Password</label>
             <input
               onChange={handleChange}
