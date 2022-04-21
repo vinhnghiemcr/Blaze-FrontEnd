@@ -37,7 +37,7 @@ const Post = (props) => {
   const handleClickViewComment = () => {
     toggleViewComments(!viewComments)
   }
-  
+  console.log("posts", props.post)
   return (
     <div className="post-wrapper">
       <h2>{props.post.title}</h2>
@@ -45,7 +45,7 @@ const Post = (props) => {
         <div></div>
         <img className="postImg" src={props.post.img} alt={props.post.id}/>
         <div className="postInfo">
-          <h2>By: {props.userState.user.trailName}</h2>
+          {/* <h2>By: {props.userState.user.trailName}</h2> */}
           <h4>{props.post.content}</h4>
         </div>
       </div>
