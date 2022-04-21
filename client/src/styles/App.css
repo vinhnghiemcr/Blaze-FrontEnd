@@ -35,6 +35,12 @@
   margin-top: 15px;
 }
 
+.trail-page-image {
+  width: 20%;
+  border-radius: 10%;
+  margin-top: 15px;
+}
+
 .state-wrapper {
   color: #f2f2f2;
 }
