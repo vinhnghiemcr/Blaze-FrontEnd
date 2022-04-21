@@ -1,12 +1,14 @@
 import * as types from '../types'
 import * as services from '../../services/Trail'
 import { GetStateAndAllTrails } from '../../services/State'
+import { GetPostofTrail } from '../../services/Post'
 
 //get trail by Id
 export const GetTrailById = (trailId) => {
   return async (dispatch) => {
     try {
       const trail = await services.GetTrailAndPosts(trailId)
+      const posts = await GetPostofTrail(trailId)
       // Set trail in TrailReducer
       dispatch({
         type: types.SET_TRAIL,
@@ -17,7 +19,7 @@ export const GetTrailById = (trailId) => {
       console.log('trail.posts:', trail.posts)
       dispatch({
         type: types.SET_POSTS,
-        payload: trail.posts
+        payload: posts
       })
     } catch (error) {
       throw error

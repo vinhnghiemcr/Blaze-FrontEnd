@@ -22,6 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const PostForm = (props) => {
 const [trailNames, settrailNames] = useState([])
+let userId = props.userState.user.id
 
 const getAllTrailNames = async () => {
   const nameOfAllTrails =  await GetAllTrailNames()
@@ -30,7 +31,6 @@ const getAllTrailNames = async () => {
 useEffect(() => {
   getAllTrailNames()
 }, [])
-  let userId = props.userState.user.id
   const handleChange = (e) => {
     props.updateNewPostValue({[e.target.name]: e.target.value})
   }

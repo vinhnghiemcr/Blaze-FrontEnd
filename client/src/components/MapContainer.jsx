@@ -72,7 +72,7 @@ const MapContainer = (props) => {
                     marker={activeMarker}
                     visible={showInfoWindow}
                     >
-                        <h2>{selectedPlace.name}</h2>
+                        <h1>{selectedPlace.name}</h1>
                         <h4>{`Location: ${selectedPlace.location}`}</h4>
                         <h4>{`Difficulty: ${selectedPlace.difficulty} miles `}</h4>
                         <h4>{`Length: ${selectedPlace['length']}`}</h4>
