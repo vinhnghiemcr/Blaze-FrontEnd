@@ -322,6 +322,37 @@ button:focus {
   100% {transform: rotate(-15deg);}
 }
 
+.hiker {
+  width: 3%;
+}
+
+.tent {
+  width: 4%;
+}
+
+.bear {
+  width: 3%;
+  position: relative;
+  animation: bearMoves 15s infinite;
+}
+
+@keyframes bearMoves {
+  0%   {transform: rotate(-15deg);
+        left: 0px}
+  25%  {transform: rotate(-5deg) !important;
+        left: 25px}
+  48% {left: 50px}
+  50%  {transform: rotate(0deg);
+        left: 50px;}
+  52% {left: 50px}
+  75%  {transform: rotate(5deg) !important;
+        left: 25px}
+  100% {transform: rotate(-15deg);
+        left: 0px;
+        transform: scaleX(-1)}
+}
+
+
 .footer-design {
   overflow: hidden;
   position: fixed; 
