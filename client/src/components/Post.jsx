@@ -37,7 +37,6 @@ const Post = (props) => {
   const handleClickViewComment = () => {
     toggleViewComments(!viewComments)
   }
-  console.log("posts", props.post)
   return (
     <div className="post-wrapper">
       <h2>{props.post.title}</h2>
