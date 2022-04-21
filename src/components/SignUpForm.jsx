@@ -24,7 +24,7 @@ const SignUpForm = (props) => {
             <form className="col" onSubmit={props.handleSubmit}>
                 <h2>Register</h2>
                 <hr/>
-                <div className="input-wrapper">
+                <div className="register-input-wrapper">
                     <label htmlFor="name">Name</label>
                     <input
                     onChange={handleChange}
@@ -35,7 +35,7 @@ const SignUpForm = (props) => {
                     required
                     />
                 </div>
-                <div className="input-wrapper">
+                <div className="register-input-wrapper">
                     <label htmlFor="name">Trail Name</label>
                     <input
                     onChange={handleChange}
@@ -46,7 +46,7 @@ const SignUpForm = (props) => {
                     required
                     />
                 </div>
-                <div className="input-wrapper">
+                <div className="register-input-wrapper">
                     <label htmlFor="email">Email</label>
                     <input
                     onChange={handleChange}
@@ -58,7 +58,7 @@ const SignUpForm = (props) => {
                     />
                 </div>
 
-                <div className="input-wrapper">
+                <div className="register-input-wrapper">
                     <label htmlFor="password">Password</label>
                     <input
                     onChange={handleChange}
@@ -69,7 +69,7 @@ const SignUpForm = (props) => {
                     required
                     />
                 </div>
-                <div className="input-wrapper">
+                <div className="register-input-wrapper">
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input
                     onChange={handleChange}

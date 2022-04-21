@@ -259,24 +259,23 @@ label {
 }
 
 .dialog {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  position: absolute;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
   width: 100%; 
-  background-color: #9ea68dc7;
+  height: 100%; 
   overflow: auto;
-  border:0;
-  top: 0%;
-  left: 0%;
-  margin-top: 8%;
+  background-color: rgba(0,0,0,0.9);
+  display: block;
+  margin: 0;
 }
 
 .dialog img {
-  max-width: 45%;
-  max-height: 45%;
+  object-fit:contain;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 95%;
 }
 
 
@@ -434,4 +433,21 @@ button:focus {
 }
 .input-image img {
   width: 50px;
+}
+
+.register-input-wrapper, .login-input-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.register-input-wrapper label, .login-input-wrapper label {
+  margin-right: 30px;
+  text-align: end;
+}
+
+.register-input-wrapper input, .login-input-wrapper input {
+  width: 300px;
+  height: 20px;
+  margin: 5px 0;
+  border-radius: 5px;
 }
