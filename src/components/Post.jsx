@@ -12,6 +12,7 @@ const Post = (props) => {
   const [newComment, setNewComment] = useState('')
   const [comments, setComments] = useState([])
   const [viewComments, toggleViewComments] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const fetchComments = async () => {
     const result = await GetPostComments(props.post.id)
@@ -37,12 +38,21 @@ const Post = (props) => {
   const handleClickViewComment = () => {
     toggleViewComments(!viewComments)
   }
+
+  const enlargeImage = () => {
+    setIsOpen(!isOpen)
+  } 
+
   return (
     <div className="post-wrapper">
       <h2>{props.post.title}</h2>
       <div className = 'post-body'>
         <div></div>
-        <img className="postImg" src={props.post.img} alt={props.post.id}/>
+        <img onClick={enlargeImage} className="postImg popImage" src={props.post.img} alt={props.post.id}/>
+        {isOpen && 
+          <dialog className="dialog" open onClick={enlargeImage}>
+            <img src={props.post.img} alt="zoom photo" onClick={enlargeImage}  />
+          </dialog>}
         <div className="postInfo">
           <h2>By: {props.post['User.trailName']}</h2>
           <h4>{props.post.content}</h4>
