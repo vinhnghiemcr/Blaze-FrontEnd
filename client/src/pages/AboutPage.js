@@ -1,4 +1,5 @@
 import logo from '../assets/Blaze_logo.png'
+import Footer from '../components/Footer'
 const About = () => {
   return (
     <div className="about-page">
@@ -22,6 +23,9 @@ const About = () => {
           Jenna Leopold
         </a>
         <a href="www.linkedin.com/in/marieobermeier">Molly Obermeier</a>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   )
