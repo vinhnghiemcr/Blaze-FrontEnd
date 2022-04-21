@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { CreateNewTrail, UpdateTrailForm, PopulateTrailForm, EditTrail, ToggleShouldUpdateTrail } from '../store/actions/TrailActions'
 import { ToggleCreatingTrail } from '../store/actions/UserActions'
 
-import Dropdown from '../components/Dropdown'
+import Dropdown from './Dropdown'
 import ImageInput from "./ImageInput"
 
 const allStates = [

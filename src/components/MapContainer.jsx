@@ -1,4 +1,4 @@
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react-17'
 import { useState } from 'react';
 const REACT_APP_GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 

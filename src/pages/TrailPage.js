@@ -7,7 +7,7 @@ import {
   DeleteTrail
 } from '../store/actions/TrailActions'
 import Post from '../components/Post'
-import MapWrapper from '../components/MapWrapper'
+// import MapWrapper from '../components/MapWrapper'
 import TrailForm from '../components/TrailForm'
 import MapContainer from '../components/MapContainer'
 
@@ -70,7 +70,6 @@ const TrailPage = (props) => {
           <Post key={post.id} post={post} />
         ))}
       </div>
-      {/* <MapContainer /> */}
       <MapContainer trail={props.trailState.trail} />
     </div>
   )
