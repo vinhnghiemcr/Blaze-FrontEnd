@@ -45,7 +45,6 @@ const Post = (props) => {
 
   const isFollowing = () => {
     let userFriendListIDs = props.userState.followingList.map((friend) => friend['followers.id'])
-    console.log(userFriendListIDs, "Friendnlist ID")
     if (userFriendListIDs.includes(props.post['User.id'])) {
       return true
     } else {
@@ -65,7 +64,24 @@ const Post = (props) => {
   const enlargeImage = () => {
     setIsOpen(!isOpen)
   } 
+  const timeStamp = () => {
+    let milliseconds  = Date.now() -Date.parse(props.post.updatedAt)
+    let seconds = Math.round(milliseconds/1000)
+    let minutes = Math.round(seconds/60)
+    let hours = Math.round(minutes/60)
+    let days = Math.round(hours/24)
 
+    if (days > 1){
+      return days + " days"
+    } else if ( hours > 1) {
+      return hours + " hours"
+    } else if (minutes> 1){
+      return minutes + "mins"
+    } else {
+      return seconds + " secs"
+    }
+  }
+  
   return (
     <div className="post-wrapper">
       <h2>{props.post.title}</h2>
@@ -79,6 +95,7 @@ const Post = (props) => {
           <div className="postInfo">          
             <div>
                 <h2>By: {props.post['User.trailName']}</h2>
+                <div>{timeStamp()}</div>
                 {(props.userState.user.id !== props.post['User.id']) && ( isFollowing() ? <button onClick={handleUnFollowClick} >Unfollow</button> :<button onClick={handleFollowClick} >Follow</button>)}
             </div>
             <h4>{props.post.content}</h4>   
