@@ -30,7 +30,6 @@ const Post = (props) => {
 
   const handleSubmit = async () => {
     const comment = await CreateComment(props.userState.user.id, props.post.id, {content: newComment})
-    console.log(comment, "COMMENT from Create Comment")
     fetchComments() 
     setNewComment('')
 
