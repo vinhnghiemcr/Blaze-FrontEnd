@@ -87,7 +87,9 @@ export const EditTrail = (trailId, userId, formValues) => {
   return async (dispatch) => {
     try {
       delete formValues.stateName
+      //Make axios call to update the trail by the user id and the value we want to update
       const trail = await services.UpdateTrailById(trailId, userId, formValues)
+      //Clear the form, update the state
       dispatch({
         type: types.CLEAR_TRAIL_FORM,
         payload: {
