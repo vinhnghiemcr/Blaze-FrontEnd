@@ -2,7 +2,7 @@ import Axios from 'axios'
 
 export let BASE_URL = process.env.NODE_ENV === 'production'
   ? 'https://blaze-trail.herokuapp.com/api'
-  : 'https://localhost:3001/api'
+  : 'http://localhost:3001/api'
 
 const Client = Axios.create({ baseURL: BASE_URL })
 
