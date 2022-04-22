@@ -7,7 +7,6 @@ import {
   DeleteTrail
 } from '../store/actions/TrailActions'
 import Post from '../components/Post'
-// import MapWrapper from '../components/MapWrapper'
 import TrailForm from '../components/TrailForm'
 import MapContainer from '../components/MapContainer'
 
