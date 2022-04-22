@@ -14,6 +14,7 @@ import Post from '../components/Post'
 import PostForm from '../components/PostForm'
 import TrailForm from '../components/TrailForm'
 import { useNavigate } from 'react-router-dom'
+import FriendList from '../components/FriendList'
 
 const mapStateToProps = ({ userState }) => {
   return { userState }
@@ -66,11 +67,13 @@ const UserPage = (props) => {
   }
 
   return (
-    <div>
+    <div className='user-page'>
+
       {!props.userState.authenticated ? (
         <h1>Not authorized</h1>
       ) : (
         <div>
+          <FriendList followingList={props.userState.followingList} />
           <h4 className="user-profile-trail-name">User's Trail Name:</h4>
           
           {typeof user === 'undefined' ?  null :  <h1 className="trail-name">{user.trailName}</h1>}

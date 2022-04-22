@@ -453,7 +453,7 @@ button:focus {
 }
 
 /* Friend List component */
-.timeline-page {
+.timeline-page, .user-page {
   max-width: 90%;
 }
 .friend-list { 
