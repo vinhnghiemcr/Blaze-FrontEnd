@@ -96,7 +96,7 @@ const Post = (props) => {
             <div>
                 <h2>By: {props.post['User.trailName']}</h2>
                 <div>{`${timeStamp()} ago`}</div>
-                {(props.userState.user.id !== props.post['User.id']) && ( isFollowing() ? <button onClick={handleUnFollowClick} >Unfollow</button> :<button onClick={handleFollowClick} >Follow</button>)}
+                {(props.userState.authenticated) && (props.userState.user.id !== props.post['User.id']) && ( isFollowing() ? <button onClick={handleUnFollowClick} >Unfollow</button> :<button onClick={handleFollowClick} >Follow</button>)}
             </div>
             <h4>{props.post.content}</h4>   
           </div>
