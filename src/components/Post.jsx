@@ -19,6 +19,7 @@ const Post = (props) => {
   const [newComment, setNewComment] = useState('')
   const [comments, setComments] = useState([])
   const [viewComments, toggleViewComments] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const fetchComments = async () => {
     const result = await GetPostComments(props.post.id)
@@ -60,23 +61,28 @@ const Post = (props) => {
     props.unfollowingUser(props.userState.user.id, props.post['User.id'])
   }
 
-  
 
-console.log(props.post, "POST")
+  const enlargeImage = () => {
+    setIsOpen(!isOpen)
+  } 
+
   return (
     <div className="post-wrapper">
       <h2>{props.post.title}</h2>
       <div className = 'post-body'>
         <div></div>
-        <img className="postImg" src={props.post.img} alt='post image'/>
-        <div className="postInfo">          
-          <div>
-              <h2>By: {props.post['User.trailName']}</h2>
-              {(props.userState.user.id !== props.post['User.id']) && ( isFollowing() ? <button onClick={handleUnFollowClick} >Unfollow</button> :<button onClick={handleFollowClick} >Follow</button>)}
-                  
+        <img onClick={enlargeImage} className="postImg popImage" src={props.post.img} alt={props.post.id}/>
+        {isOpen && 
+          <dialog className="dialog" open onClick={enlargeImage}>
+            <img src={props.post.img} alt="zoom photo" onClick={enlargeImage}  />
+          </dialog>}
+          <div className="postInfo">          
+            <div>
+                <h2>By: {props.post['User.trailName']}</h2>
+                {(props.userState.user.id !== props.post['User.id']) && ( isFollowing() ? <button onClick={handleUnFollowClick} >Unfollow</button> :<button onClick={handleFollowClick} >Follow</button>)}
+            </div>
+            <h4>{props.post.content}</h4>   
           </div>
-          <h4>{props.post.content}</h4>
-        </div>
       </div>
       {viewComments && (
         <div className="comments-wrapper">

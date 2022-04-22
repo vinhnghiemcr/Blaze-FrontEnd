@@ -21,9 +21,9 @@
 
 ### **_Description_**
 
-##### The app "Blazed," created for Project 3 of GA's SEIR, enables users to keep track of their favorite hiking trails. Authenticated users can add trails and then create posts about their favorite adventures. Throughout the app, we will implement full CRUD functionality.
+##### The app "Blaze," created for Project 3 of GA's SEIR, enables users to keep track of their favorite hiking trails. Authenticated users can add trails and then create posts about their favorite adventures. Throughout the app, we will implement full CRUD functionality.
 
-##### Navigate to [the deployed site](insert-website-here) to view hiking trails.
+##### Navigate to [the deployed site](https://blazetrailmix.herokuapp.com/) to view hiking trails.
 
 ---
 
