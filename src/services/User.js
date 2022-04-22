@@ -57,3 +57,33 @@ export const GetPostofUser = async (userId) => {
     throw error
   }
 }
+
+// Following an user
+export const FollowingAnUser = async (userId, followingId) => {
+  try {
+    const res = await Client.get(`user/${userId}/following/${followingId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+// Unfollowing an user
+export const UnfollowingAnUser = async (userId, followingId) => {
+  try {
+    const res = await Client.delete(`user/${userId}/following/${followingId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+//Get firend list
+export const GetFriendList = async (userId) => {
+  try {
+    const res = await Client.get(`user/${userId}/friendList`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

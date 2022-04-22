@@ -72,7 +72,8 @@ const UserPage = (props) => {
       ) : (
         <div>
           <h4 className="user-profile-trail-name">User's Trail Name:</h4>
-          <h1 className="trail-name">{user.trailName}</h1>
+          
+          {typeof user === 'undefined' ?  null :  <h1 className="trail-name">{user.trailName}</h1>}
           <button onClick={toggleDeleteUserPasswordInput}>
             Delete Profile
           </button>

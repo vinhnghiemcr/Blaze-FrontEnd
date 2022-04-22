@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrail: (trailId) => dispatch(GetTrailById(trailId)),
     toggleShouldUpdateTrail: () => dispatch(ToggleShouldUpdateTrail()),
-    deleteTrail: (trailId, userId) => dispatch(DeleteTrail(trailId, userId))
+    deleteTrail: (trailId, userId) => dispatch(DeleteTrail(trailId, userId)),
+    
   }
 }
 
@@ -41,10 +42,12 @@ const TrailPage = (props) => {
     navigate(-1)
   }
 
+  
+
   return (
     <div>
       <div>
-        <h2 className="heading">{props.trailState.trail.name}</h2>
+        <h2 className="heading">{props.trailState.trail.name}</h2>        
         <hr />
         <img
           className="trail-page-image"

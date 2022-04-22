@@ -1,3 +1,5 @@
+
+
 const types = require('../types')
 
 const iState = {
@@ -17,7 +19,8 @@ const iState = {
   passwordBody: {
     password: ''
   },
-  deletingUser: false
+  deletingUser: false,
+  followingList: []
 }
 
 const UserReducer = (state = iState, action) => {
@@ -69,8 +72,11 @@ const UserReducer = (state = iState, action) => {
           passwordBody: {
             password: ''
           },
-          deletingUser: false 
+          deletingUser: false ,
+          followingList: []
         }
+      case types.UPDATE_FOLLOWING_LIST:
+        return {...state, followingList: action.payload}
     default:
       return { ...state }
   }

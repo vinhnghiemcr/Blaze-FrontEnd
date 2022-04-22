@@ -2,10 +2,25 @@ import * as types from '../types'
 import * as services from '../../services/User'
 
 // Set user
-export const SetUser = (user) => ({
-  type: types.SET_USER,
-  payload: user
-})
+export const SetUser = (user) => {
+  return async (dispatch) => {
+    try {
+      if (user) {
+        const friendList =await services.GetFriendList(user.id)
+        dispatch({
+          type: types.UPDATE_FOLLOWING_LIST,
+          payload: friendList
+        })
+      }
+      dispatch({
+        type: types.SET_USER,
+        payload: user
+      })
+    } catch (error) {
+      throw error
+    }
+  } 
+}
 
 // Toggle authenticated
 export const ToggleAuthenticated = (value) => ({
@@ -85,3 +100,31 @@ export const HandlePasswordInputChange = (password) => {
 export const SetUserStateToDefault = () => ({
   type: types.SET_USER_STATE_TO_DEFAULT
 })
+
+export const FollowingAnUser = (userId, followingId) => {
+  return async (dispatch) => {
+    try {
+      const followingList = await services.FollowingAnUser(userId, followingId)
+      dispatch({
+        type: types.UPDATE_FOLLOWING_LIST,
+        payload: followingList
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const UnfollowingAnUser = (userId, followingId) => {
+  return async (dispatch) => {
+    try {
+      const followingList = await services.UnfollowingAnUser(userId, followingId)
+      dispatch({
+        type: types.UPDATE_FOLLOWING_LIST,
+        payload: followingList
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
