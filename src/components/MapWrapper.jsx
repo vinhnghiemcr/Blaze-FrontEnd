@@ -6,8 +6,8 @@ import View from 'ol/View';
 import XYZ from 'ol/source/XYZ';
 import {fromLonLat} from 'ol/proj';
 import {Point} from 'ol/geom';
-import {Feature, Overlay} from 'ol/index';
-import {OSM, Vector as VectorSource} from 'ol/source';
+import {Feature} from 'ol/index';
+import { Vector as VectorSource} from 'ol/source';
 import {Circle, Fill, Style} from 'ol/style';
 
 const KEY = process.env.REACT_APP_MAPTILER_KEY
