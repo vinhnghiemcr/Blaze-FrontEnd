@@ -85,6 +85,7 @@
 
 - [ ] User can follow another user and have followers
 - [ ] View map of hiking trail
+- [ ] Make compatible for phones
 
 ---
 
