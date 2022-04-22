@@ -1,4 +1,8 @@
 
+html {
+  width: 100vw;
+}
+
 .App {
   text-align: center;
 }
@@ -8,8 +12,52 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   margin: 5%;
+  box-sizing: border-box;
 }
 
+.home a {
+  max-width: 100%;
+  display: flex; 
+}
+.home a div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.home a div img {
+  max-width: 100%;
+  flex-shrink: 2;
+}
+header {
+  padding: 0; 
+}
+
+@media only screen and (max-width: 1500px) { 
+  .home {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1000px) { 
+
+  .home {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 730px) { 
+  .home {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 500px) { 
+  .home {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* Home Page */
 .stateMap {
@@ -20,12 +68,14 @@
 
 .stateMap:hover {
   filter: grayscale(0%);
+  background-color: #afb5a2;
   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.9), 0 12px 40px 0 rgba(255, 255, 255, 0.29);
 }
 .stateImg {
-  flex-shrink: 2;
-  border-radius: 10%;
-  width: 80%;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* State Page */
