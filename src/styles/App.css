@@ -451,3 +451,30 @@ button:focus {
   margin: 5px 0;
   border-radius: 5px;
 }
+
+/* Friend List component */
+.timeline-page {
+  max-width: 90%;
+}
+.friend-list { 
+  z-index: 1;
+  position: fixed;
+  right: 5%;
+  top: 10%;
+  overflow: auto;
+  background-color: #4c59398f;
+  padding: 20px;
+  border-radius: 10px;
+  
+}
+.friend-list ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+.friend-list ul li {
+  list-style-type: none;
+  margin: 10px auto;
+  
+}

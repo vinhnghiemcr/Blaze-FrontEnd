@@ -3,6 +3,8 @@ import { GetPostsFromFollowingUsers } from '../store/actions/PostActions'
 import Post from '../components/Post'
 import { connect } from 'react-redux'
 
+import FriendList from '../components/FriendList'
+
 const mapStateToProps = ({ userState, postState }) => {
   return { userState, postState }
 }
@@ -21,11 +23,12 @@ const TimelinePage = (props) => {
   }, [])
 
   return (
-    <div>
+    <div className='timeline-page'>
       {!props.userState.authenticated ? (
         <h1>Not authorized</h1>
       ) : (
         <div>
+          <FriendList followingList={props.userState.followingList} />
           <h1 className="heading">Timeline</h1>
           <hr />
           <div className="timeline">

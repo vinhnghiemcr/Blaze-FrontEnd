@@ -72,13 +72,13 @@ const Post = (props) => {
     let days = Math.round(hours/24)
 
     if (days > 1){
-      return days + " days"
+      return days + "d"
     } else if ( hours > 1) {
-      return hours + " hours"
+      return hours + "h"
     } else if (minutes> 1){
-      return minutes + "mins"
+      return minutes + "m"
     } else {
-      return seconds + " secs"
+      return seconds + "s"
     }
   }
   
@@ -95,7 +95,7 @@ const Post = (props) => {
           <div className="postInfo">          
             <div>
                 <h2>By: {props.post['User.trailName']}</h2>
-                <div>{timeStamp()}</div>
+                <div>{`${timeStamp()} ago`}</div>
                 {(props.userState.user.id !== props.post['User.id']) && ( isFollowing() ? <button onClick={handleUnFollowClick} >Unfollow</button> :<button onClick={handleFollowClick} >Follow</button>)}
             </div>
             <h4>{props.post.content}</h4>   
