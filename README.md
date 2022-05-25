@@ -66,6 +66,7 @@
 ---
 
 ### **_Screenshots_**
+## ![Image](https://github.com/vinhnghiemcr/Blaze-FrontEnd/blob/main/Blaze-trail.png?raw=true)
 
 ---
 
