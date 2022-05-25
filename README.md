@@ -72,21 +72,21 @@
 
 ### **_User Story_**
 
-- [ ] User authentication and authorization
-- [ ] Update user profile
-- [ ] View all hiking trails from all states in the U.S.
-- [ ] View details of a particular hiking trail
-- [ ] Create a hiking trail
-- [ ] Post about your favorite hiking trail
-- [ ] Comment on other users' posts
+- [x] User authentication and authorization
+- [x] Update user profile
+- [x] View all hiking trails from all states in the U.S.
+- [x] View details of a particular hiking trail
+- [x] Create a hiking trail
+- [x] Post about your favorite hiking trail
+- [x] Comment on other users' posts
 
 ---
 
 ### **_Future Updates_**
 
-- [ ] User can follow another user and have followers
-- [ ] View map of hiking trail
-- [ ] Make compatible for phones
+- [x] User can follow another user and have followers
+- [x] View map of hiking trail
+- [x] Make compatible for phones
 
 ---
 
